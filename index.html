@@ -2,9 +2,8 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Thanasit_Manager Pro — ระบบบริหารโครงการ</title>
+<title>PropManager Pro v3</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- ✅ เปลี่ยนจาก Firestore → Realtime Database -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
@@ -26,14 +25,11 @@ aside{width:var(--sbw);background:var(--sb);position:fixed;top:0;left:0;height:1
 .main{margin-left:var(--sbw);flex:1;display:flex;flex-direction:column;min-height:100vh}
 .sbl{padding:18px 16px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06)}
 .sbi{width:38px;height:38px;border-radius:var(--radl);background:linear-gradient(135deg,#6366F1,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.sbn{font-size:15px;font-weight:700;color:#F1F5F9;line-height:1.1}
-.sbs{font-size:10px;color:#475569}
-.sbv{padding:12px;flex:1;overflow-y:auto;scrollbar-width:none}
-.sbv::-webkit-scrollbar{display:none}
+.sbn{font-size:15px;font-weight:700;color:#F1F5F9;line-height:1.1}.sbs{font-size:10px;color:#475569}
+.sbv{padding:12px;flex:1;overflow-y:auto;scrollbar-width:none}.sbv::-webkit-scrollbar{display:none}
 .sbsl{font-size:10px;font-weight:600;color:#334155;text-transform:uppercase;letter-spacing:1px;padding:8px 10px 4px;display:block}
 .sbit{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:var(--rad);color:#94A3B8;font-size:13.5px;cursor:pointer;transition:all .15s;margin-bottom:1px;user-select:none}
-.sbit:hover{background:var(--sbh);color:#CBD5E1}
-.sbit.active{background:var(--sba);color:var(--sbat)}
+.sbit:hover{background:var(--sbh);color:#CBD5E1}.sbit.active{background:var(--sba);color:var(--sbat)}
 .sbit svg{width:17px;height:17px;flex-shrink:0;stroke-width:1.75}
 .sbft{padding:12px 16px;border-top:1px solid rgba(255,255,255,.06)}
 .live{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.12);color:#6EE7B7;font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:999px}
@@ -55,18 +51,17 @@ aside{width:var(--sbw);background:var(--sb);position:fixed;top:0;left:0;height:1
 .kpi{background:var(--card);border:1px solid var(--bd);border-radius:var(--radl);padding:16px;position:relative;overflow:hidden;transition:box-shadow .15s}
 .kpi:hover{box-shadow:var(--shm)}
 .kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-.kp::after{background:var(--p)}.kg::after{background:var(--g)}.kr::after{background:var(--r)}.ka::after{background:var(--a)}.kv::after{background:#8B5CF6}.kt::after{background:#14B8A6}
+.kp::after{background:var(--p)}.kg::after{background:var(--g)}.kr::after{background:var(--r)}.ka::after{background:var(--a)}.kv2::after{background:#8B5CF6}.kt::after{background:#14B8A6}
 .kin{width:36px;height:36px;border-radius:var(--rad);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .kin svg{width:18px;height:18px;stroke-width:1.75}
 .ip{background:var(--pb);color:var(--p)}.ig{background:var(--gb);color:var(--g)}.ir{background:var(--rb);color:var(--r)}.ia{background:var(--ab);color:var(--a)}.iv{background:#F5F3FF;color:#7C3AED}.it{background:#F0FDFA;color:#0D9488}
 .kl{font-size:11px;font-weight:500;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.kv{font-size:20px;font-weight:700;color:var(--tx);font-family:'Inter',sans-serif;line-height:1.1}
+.kvv{font-size:20px;font-weight:700;color:var(--tx);font-family:'Inter',sans-serif;line-height:1.1}
 .ks{font-size:11px;color:var(--hi);margin-top:4px}
 .kb{height:3px;background:var(--bd2);border-radius:2px;margin-top:10px;overflow:hidden}
 .kbf{height:100%;border-radius:2px;transition:width .6s}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--rad);font-size:13px;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .15s;font-family:inherit;white-space:nowrap}
-.btn:active{transform:scale(.98)}
-.btn svg{width:14px;height:14px;stroke-width:2;flex-shrink:0}
+.btn:active{transform:scale(.98)}.btn svg{width:14px;height:14px;stroke-width:2;flex-shrink:0}
 .bp{background:var(--p);color:#fff}.bp:hover{background:var(--pd)}
 .bg2{background:var(--g);color:#fff}.bg2:hover{background:#059669}
 .br2{background:var(--rb);color:var(--r);border-color:#FECACA}.br2:hover{background:#FEE2E2}
@@ -78,8 +73,7 @@ aside{width:var(--sbw);background:var(--sb);position:fixed;top:0;left:0;height:1
 .tw table{width:100%;border-collapse:collapse;font-size:13px}
 .tw thead th{background:var(--bg);padding:10px 12px;text-align:left;font-weight:600;color:var(--mu);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);white-space:nowrap}
 .tw tbody td{padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:middle}
-.tw tbody tr:last-child td{border-bottom:none}
-.tw tbody tr:hover td{background:#FAFAFA}
+.tw tbody tr:last-child td{border-bottom:none}.tw tbody tr:hover td{background:#FAFAFA}
 .tw tbody tr.hatt td:first-child{border-left:3px solid var(--p)}
 .tacts{display:flex;gap:4px;align-items:center;justify-content:flex-end}
 .tb{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--rad);border:1px solid var(--bd);background:var(--card);cursor:pointer;color:var(--mu);transition:all .15s}
@@ -89,8 +83,7 @@ aside{width:var(--sbw);background:var(--sb);position:fixed;top:0;left:0;height:1
 .tb svg{width:13px;height:13px;stroke-width:2}
 .ach{display:inline-flex;align-items:center;gap:4px;background:var(--pb);color:var(--p);border:1px solid #C7D2FE;border-radius:999px;padding:2px 8px;font-size:11px;cursor:pointer;max-width:150px}
 .ach span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.fg{display:flex;flex-direction:column;gap:4px}
-.fg label{font-size:12px;font-weight:500;color:var(--mu)}
+.fg{display:flex;flex-direction:column;gap:4px}.fg label{font-size:12px;font-weight:500;color:var(--mu)}
 .fc{padding:8px 10px;border:1px solid var(--bd);border-radius:var(--rad);font-size:13px;font-family:inherit;background:var(--card);color:var(--tx);width:100%;transition:border-color .15s,box-shadow .15s}
 .fc:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(99,102,241,.1)}
 textarea.fc{resize:vertical;min-height:60px}
@@ -101,9 +94,7 @@ textarea.fc{resize:vertical;min-height:60px}
 .fdt{font-size:12px;color:var(--mu)}
 .fprev{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--pb);border:1px solid #C7D2FE;border-radius:var(--rad);margin-top:8px}
 .fpico{width:34px;height:34px;border-radius:var(--rad);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--pb)}
-.fpinfo{flex:1;min-width:0}
-.fpname{font-size:12px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.fpsize{font-size:11px;color:var(--mu)}
+.fpinfo{flex:1;min-width:0}.fpname{font-size:12px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.fpsize{font-size:11px;color:var(--mu)}
 .mback{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s}
 .mback.open{opacity:1;pointer-events:auto}
 .mo{background:var(--card);border-radius:var(--radx);box-shadow:0 20px 60px rgba(0,0,0,.2);padding:24px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;transform:scale(.95) translateY(10px);transition:transform .2s}
@@ -111,12 +102,10 @@ textarea.fc{resize:vertical;min-height:60px}
 .mhd{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .mttl{font-size:16px;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:8px}
 .mclose{width:30px;height:30px;border-radius:var(--rad);border:1px solid var(--bd);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--mu)}
-.mclose:hover{background:var(--rb);color:var(--r);border-color:#FECACA}
-.mclose svg{width:14px;height:14px;stroke-width:2}
+.mclose:hover{background:var(--rb);color:var(--r);border-color:#FECACA}.mclose svg{width:14px;height:14px;stroke-width:2}
 .mft{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid var(--bd)}
 .twrap{position:fixed;bottom:20px;right:20px;z-index:600;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .tst{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:var(--radl);font-size:13px;font-weight:500;box-shadow:var(--shm);animation:tin .3s ease;pointer-events:auto;min-width:200px}
-.tst svg{width:15px;height:15px;flex-shrink:0;stroke-width:2}
 .tok{background:#ECFDF5;color:#065F46;border:1px solid #A7F3D0}
 .terr{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
 .tinf{background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE}
@@ -128,65 +117,68 @@ textarea.fc{resize:vertical;min-height:60px}
 @keyframes rot{to{transform:rotate(360deg)}}
 .pgrid{display:grid;grid-template-columns:120px 1fr 165px 185px;gap:16px;align-items:start}
 .pimg{width:120px;height:90px;border-radius:var(--radl);border:2px dashed var(--bd);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:border-color .15s}
-.pimg:hover{border-color:var(--p)}
-.pimg img{width:100%;height:100%;object-fit:cover}
+.pimg:hover{border-color:var(--p)}.pimg img{width:100%;height:100%;object-fit:cover}
 .pov{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;border-radius:calc(var(--radl) - 2px)}
 .pimg:hover .pov{opacity:1}
 .ilbl{font-size:10.5px;font-weight:600;color:var(--hi);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
 .ival{font-size:14px;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:6px}
 .ival.big{font-size:19px;color:var(--p);font-family:'Inter',sans-serif}
 .mzone{background:var(--bg);border:1px solid var(--bd);border-radius:var(--radl);height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:5px;transition:all .15s;padding:10px;text-align:center}
-.mzone:hover{border-color:var(--p);background:var(--pb)}
-.dzone{min-width:185px}
+.mzone:hover{border-color:var(--p);background:var(--pb)}.dzone{min-width:185px}
 .ditem{display:flex;align-items:center;gap:8px;padding:5px 8px;border:1px solid var(--bd);border-radius:var(--rad);margin-bottom:4px;font-size:12px}
 .ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.ucard{background:var(--card);border:1px solid var(--bd);border-radius:var(--radx);padding:16px;transition:box-shadow .15s}
-.ucard:hover{box-shadow:var(--shm)}
+.ucard{background:var(--card);border:1px solid var(--bd);border-radius:var(--radx);padding:16px;transition:box-shadow .15s}.ucard:hover{box-shadow:var(--shm)}
 .utop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
 .ucode{font-size:22px;font-weight:700;font-family:'Inter',sans-serif}
 .uprice{font-size:15px;font-weight:700;color:var(--p);font-family:'Inter',sans-serif;margin-bottom:5px}
-.umeta{font-size:12px;color:var(--mu);margin-bottom:3px;display:flex;align-items:center;gap:5px}
-.umeta svg{width:13px;height:13px;stroke-width:2}
+.umeta{font-size:12px;color:var(--mu);margin-bottom:3px;display:flex;align-items:center;gap:5px}.umeta svg{width:13px;height:13px;stroke-width:2}
 .uacts{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
 .cgrid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:18px}
-.cwrap{position:relative;height:260px}
-.cwsm{position:relative;height:200px}
-.stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bd)}
-.stat:last-child{border-bottom:none}
+.cwrap{position:relative;height:260px}.cwsm{position:relative;height:200px}
+.stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bd)}.stat:last-child{border-bottom:none}
 .stl{font-size:12.5px;color:var(--mu)}.stv{font-size:13px;font-weight:600;font-family:'Inter',sans-serif}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
-.empty{text-align:center;padding:36px 20px;color:var(--mu)}
-.empty svg{width:40px;height:40px;margin:0 auto 12px;opacity:.3}
-.empty p{font-size:13px}
+.empty{text-align:center;padding:36px 20px;color:var(--mu)}.empty svg{width:40px;height:40px;margin:0 auto 12px;opacity:.3}.empty p{font-size:13px}
 .sbov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:49}
-/* ── STATUS BADGE for Realtime connection ── */
+/* ─── INVESTOR ─── */
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:18px}
+.inv-card{background:linear-gradient(145deg,var(--pb),#fff);border:1.5px solid #C7D2FE;border-radius:var(--radl);padding:16px;position:relative;transition:box-shadow .15s}
+.inv-card:hover{box-shadow:var(--shm)}
+.inv-rank{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:var(--p);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif}
+.inv-name{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:2px;padding-right:30px}
+.inv-sub{font-size:11.5px;color:var(--mu);margin-bottom:8px}
+.inv-pct{font-size:26px;font-weight:700;color:var(--p);font-family:'Inter',sans-serif;line-height:1.1}
+.inv-profit{font-size:13px;font-weight:600;margin-top:3px}
+.inv-roi{font-size:11px;color:var(--mu);margin-top:1px}
+.inv-bar{height:5px;background:var(--bd2);border-radius:3px;margin-top:10px;overflow:hidden}
+.inv-bar-fill{height:100%;background:linear-gradient(90deg,var(--p),#8B5CF6);border-radius:3px;transition:width .6s}
+.inv-acts{display:flex;gap:6px;margin-top:12px}
+.inv-sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.inv-sum-box{border-radius:var(--radl);padding:14px}
+.pct-hint{border-radius:var(--rad);padding:8px 12px;font-size:12px;display:flex;align-items:center;gap:6px;margin-top:8px}
+.pct-ok{background:var(--gb);border:1px solid #A7F3D0;color:var(--gt)}
+.pct-w{background:var(--ab);border:1px solid #FDE68A;color:var(--at)}
 #fbst{position:fixed;bottom:20px;left:20px;z-index:500;font-size:11px;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.95);border:1px solid;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:all .5s;pointer-events:none}
 #fbst.ok{color:#059669;border-color:rgba(5,150,105,.35)}
 #fbst.err{color:#dc2626;border-color:rgba(220,38,38,.3)}
 #fbst.ld{color:#d97706;border-color:rgba(217,119,6,.3)}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){aside{transform:translateX(-100%)}aside.open{transform:translateX(0)}.sbov.show{display:block}.main{margin-left:0}.ham{display:flex}.content{padding:14px}.kgrid{grid-template-columns:repeat(2,1fr)}.g2,.g3{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr 1fr}.mzone{width:100%}.dzone{min-width:100%}}
-@media(max-width:480px){.kgrid{grid-template-columns:1fr 1fr}.pgrid{grid-template-columns:1fr}}
+@media(max-width:768px){aside{transform:translateX(-100%)}aside.open{transform:translateX(0)}.sbov.show{display:block}.main{margin-left:0}.ham{display:flex}.content{padding:14px}.kgrid{grid-template-columns:repeat(2,1fr)}.g2,.g3{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr 1fr}.mzone{width:100%}.dzone{min-width:100%}.inv-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.kgrid{grid-template-columns:1fr 1fr}.pgrid{grid-template-columns:1fr}.inv-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div id="fbst" class="ld">⟳ กำลังเชื่อมต่อ...</div>
-
-<!-- LOADING -->
 <div class="loading" id="loading">
   <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#6366F1,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:4px">🏗️</div>
   <div style="font-size:17px;font-weight:700;color:#E2E8F0">PropManager Pro</div>
   <div class="spin" style="margin-top:6px"></div>
   <div style="color:#475569;font-size:13px" id="ltxt">กำลังเชื่อมต่อฐานข้อมูล...</div>
 </div>
-
 <div class="layout">
-<!-- SIDEBAR -->
 <aside id="sidebar">
-  <div class="sbl"><div class="sbi">🏗️</div><div><div class="sbn">PropManager</div><div class="sbs">Pro v2.1 · Realtime DB</div></div></div>
+  <div class="sbl"><div class="sbi">🏗️</div><div><div class="sbn">PropManager</div><div class="sbs">Pro v3 · Realtime DB</div></div></div>
   <nav class="sbv">
     <div class="sbsl">ภาพรวม</div>
     <div class="sbit active" data-tab="dashboard" onclick="goTab('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
@@ -195,6 +187,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="sbit" data-tab="expense" onclick="goTab('expense')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>รายจ่าย</div>
     <div class="sbsl" style="margin-top:10px">โครงการ</div>
     <div class="sbit" data-tab="units" onclick="goTab('units')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>บ้านแต่ละหลัง</div>
+    <div class="sbit" data-tab="investors" onclick="goTab('investors')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>ผู้ลงทุน</div>
     <div class="sbit" data-tab="cashflow" onclick="goTab('cashflow')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>กระแสเงินสด</div>
   </nav>
   <div class="sbft">
@@ -203,8 +196,6 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   </div>
 </aside>
 <div class="sbov" id="sbov" onclick="closeSB()"></div>
-
-<!-- MAIN -->
 <div class="main">
 <div class="topbar">
   <div class="tbl">
@@ -217,14 +208,13 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   </div>
 </div>
 <div class="content">
-
 <!-- DASHBOARD -->
 <div id="panel-dashboard" class="panel active">
 <div class="card">
   <div class="ch"><div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0H5m0 0H3m2 0V5"/></svg>ข้อมูลโครงการ</div>
   <button class="btn bgh bsm" onclick="openPE()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>แก้ไข</button></div>
   <div class="pgrid">
-    <div class="pimg" onclick="document.getElementById('pimginp').click()" title="คลิกเพื่อเปลี่ยนรูป">
+    <div class="pimg" onclick="document.getElementById('pimginp').click()">
       <div id="pimgw" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:28px;height:28px;color:var(--hi);stroke-width:1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:11px;color:var(--hi)">เพิ่มรูปโครงการ</span></div>
       <div class="pov"><svg viewBox="0 0 24 24" fill="none" stroke="white" style="width:22px;height:22px;stroke-width:2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
       <input type="file" id="pimginp" accept="image/*" style="display:none" onchange="onProjImg(this)">
@@ -260,7 +250,6 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   <div class="card"><div class="ct" style="margin-bottom:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>รายจ่ายล่าสุด</div><div id="dexps"></div></div>
 </div>
 </div>
-
 <!-- INCOME -->
 <div id="panel-income" class="panel">
 <div class="card">
@@ -274,7 +263,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="fg"><label>หมายเหตุ</label><input class="fc" type="text" id="inote" placeholder="-"></div>
   </div>
   <div style="margin-bottom:14px">
-    <label style="font-size:12px;font-weight:500;color:var(--mu);display:block;margin-bottom:6px">📎 แนบเอกสาร (PDF, รูป, Word, Excel — สูงสุด 1.5 MB)</label>
+    <label style="font-size:12px;font-weight:500;color:var(--mu);display:block;margin-bottom:6px">📎 แนบเอกสาร (สูงสุด 1.5 MB)</label>
     <div class="fdrop" id="idrop" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="onDrop(event,'i')">
       <input type="file" id="ifile" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx" onchange="onFile('i',this)">
       <div style="font-size:26px;margin-bottom:6px">📂</div>
@@ -297,12 +286,11 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <span style="font-size:13px;color:var(--mu)">รวม: <strong id="itot" style="color:var(--g);font-family:'Inter',sans-serif">฿0</strong></span>
   </div>
   <div class="tw" style="border:none;border-radius:0 0 var(--radl) var(--radl)">
-    <table><thead><tr><th>วันที่</th><th>แปลง</th><th>งวด</th><th>ลูกค้า</th><th style="text-align:right">จำนวน (฿)</th><th>เอกสารแนบ</th><th>หมายเหตุ</th><th></th></tr></thead>
+    <table><thead><tr><th>วันที่</th><th>แปลง</th><th>งวด</th><th>ลูกค้า</th><th style="text-align:right">จำนวน (฿)</th><th>เอกสาร</th><th>หมายเหตุ</th><th></th></tr></thead>
     <tbody id="itb"></tbody></table>
   </div>
 </div>
 </div>
-
 <!-- EXPENSE -->
 <div id="panel-expense" class="panel">
 <div class="card">
@@ -318,7 +306,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="fg"><label>หมายเหตุ</label><input class="fc" type="text" id="enote" placeholder="-"></div>
   </div>
   <div style="margin-bottom:14px">
-    <label style="font-size:12px;font-weight:500;color:var(--mu);display:block;margin-bottom:6px">📎 แนบใบเสร็จ/เอกสาร (PDF, รูป, Word, Excel — สูงสุด 1.5 MB)</label>
+    <label style="font-size:12px;font-weight:500;color:var(--mu);display:block;margin-bottom:6px">📎 แนบใบเสร็จ/เอกสาร (สูงสุด 1.5 MB)</label>
     <div class="fdrop" id="edrop" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="onDrop(event,'e')">
       <input type="file" id="efile" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx" onchange="onFile('e',this)">
       <div style="font-size:26px;margin-bottom:6px">📂</div>
@@ -341,12 +329,11 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <span style="font-size:13px;color:var(--mu)">รวม: <strong id="etot" style="color:var(--r);font-family:'Inter',sans-serif">฿0</strong></span>
   </div>
   <div class="tw" style="border:none;border-radius:0 0 var(--radl) var(--radl)">
-    <table><thead><tr><th>วันที่</th><th>หมวด</th><th>รายการ</th><th>ผู้รับเงิน</th><th>เลขที่</th><th style="text-align:right">จำนวน (฿)</th><th>สถานะ</th><th>เอกสารแนบ</th><th></th></tr></thead>
+    <table><thead><tr><th>วันที่</th><th>หมวด</th><th>รายการ</th><th>ผู้รับเงิน</th><th>เลขที่</th><th style="text-align:right">จำนวน (฿)</th><th>สถานะ</th><th>เอกสาร</th><th></th></tr></thead>
     <tbody id="etb"></tbody></table>
   </div>
 </div>
 </div>
-
 <!-- UNITS -->
 <div id="panel-units" class="panel">
 <div class="card">
@@ -357,7 +344,26 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   <div class="ugrid" id="ugrid"></div>
 </div>
 </div>
-
+<!-- INVESTORS -->
+<div id="panel-investors" class="panel">
+<div class="card">
+  <div class="ch">
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>จัดการผู้ลงทุน</div>
+    <button class="btn bg2" onclick="openInvM(null)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>เพิ่มผู้ลงทุน</button>
+  </div>
+  <div id="inv-summary" class="inv-sum-grid"></div>
+  <div class="inv-grid" id="inv-grid"></div>
+</div>
+<div class="card" style="padding:0">
+  <div style="padding:16px 20px;border-bottom:1px solid var(--bd)">
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>ตารางสัดส่วนกำไร & ผลตอบแทน</div>
+  </div>
+  <div class="tw" style="border:none;border-radius:0 0 var(--radl) var(--radl)">
+    <table><thead><tr><th>#</th><th>ชื่อผู้ลงทุน</th><th>หมายเหตุ</th><th style="text-align:right">เงินลงทุน (฿)</th><th style="text-align:right">สัดส่วน (%)</th><th style="text-align:right">กำไรที่ได้รับ (฿)</th><th style="text-align:right">ROI (%)</th><th></th></tr></thead>
+    <tbody id="inv-tb"></tbody></table>
+  </div>
+</div>
+</div>
 <!-- CASHFLOW -->
 <div id="panel-cashflow" class="panel">
 <div class="cgrid">
@@ -371,9 +377,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   <div class="card"><div class="ct" style="margin-bottom:12px">ส่วนแบ่งกำไรผู้ลงทุน</div><div id="cfinv"></div></div>
 </div>
 </div>
-
 </div></div></div>
-
 <!-- MODALS -->
 <div class="mback" id="mproj">
   <div class="mo" style="max-width:480px">
@@ -384,12 +388,10 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
       <div class="fg"><label>วันที่เริ่ม</label><input class="fc" id="pfs" type="date"></div>
       <div class="fg"><label>วันที่สิ้นสุด</label><input class="fc" id="pfe" type="date"></div>
       <div class="fg"><label>ผู้รับผิดชอบ</label><input class="fc" id="pfm"></div>
-      <div class="fg"><label>จำนวนผู้ลงทุน</label><input class="fc" id="pfi" type="number"></div>
     </div>
     <div class="mft"><button class="btn bgh" onclick="cMo('mproj')">ยกเลิก</button><button class="btn bp" onclick="savePE()">💾 บันทึก</button></div>
   </div>
 </div>
-
 <div class="mback" id="mmap">
   <div class="mo" style="max-width:440px">
     <div class="mhd"><div class="mttl">📍 ปักหมุดที่ตั้งโครงการ</div><button class="mclose" onclick="cMo('mmap')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -403,7 +405,6 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     </div>
   </div>
 </div>
-
 <div class="mback" id="munit">
   <div class="mo">
     <div class="mhd"><div class="mttl" id="umttl">🏠 เพิ่มบ้านใหม่</div><button class="mclose" onclick="cMo('munit')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -419,7 +420,19 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="mft"><button class="btn bgh" onclick="cMo('munit')">ยกเลิก</button><button class="btn bp" onclick="saveUnit()">💾 บันทึก</button></div>
   </div>
 </div>
-
+<!-- INVESTOR MODAL -->
+<div class="mback" id="minvestor">
+  <div class="mo" style="max-width:440px">
+    <div class="mhd"><div class="mttl" id="invmttl">👤 เพิ่มผู้ลงทุน</div><button class="mclose" onclick="cMo('minvestor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="fgrid">
+      <div class="fg" style="grid-column:1/-1"><label>ชื่อผู้ลงทุน *</label><input class="fc" id="inv-fname" placeholder="นาย ก / บริษัท ABC"></div>
+      <div class="fg" style="grid-column:1/-1"><label>จำนวนเงินที่ลงทุน (฿) *</label><input class="fc" id="inv-famt" type="number" placeholder="1000000" oninput="previewInvPct()"></div>
+      <div class="fg" style="grid-column:1/-1"><label>หมายเหตุ</label><input class="fc" id="inv-fnote" placeholder="เช่น ลงทุนรอบที่ 1, หุ้นส่วน"></div>
+    </div>
+    <div id="inv-pct-preview"></div>
+    <div class="mft"><button class="btn bgh" onclick="cMo('minvestor')">ยกเลิก</button><button class="btn bp" onclick="saveInv()">💾 บันทึก</button></div>
+  </div>
+</div>
 <div class="mback" id="minc">
   <div class="mo">
     <div class="mhd"><div class="mttl">✏️ แก้ไขรายรับ</div><button class="mclose" onclick="cMo('minc')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -446,7 +459,6 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="mft"><button class="btn bgh" onclick="cMo('minc')">ยกเลิก</button><button class="btn bp" onclick="saveMI()">💾 บันทึก</button></div>
   </div>
 </div>
-
 <div class="mback" id="mexp">
   <div class="mo">
     <div class="mhd"><div class="mttl">✏️ แก้ไขรายจ่าย</div><button class="mclose" onclick="cMo('mexp')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
@@ -474,791 +486,451 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="mft"><button class="btn bgh" onclick="cMo('mexp')">ยกเลิก</button><button class="btn bp" onclick="saveME()">💾 บันทึก</button></div>
   </div>
 </div>
-
 <div class="twrap" id="twrap"></div>
-
 <script>
-// ══════════════════════════════════════════════════════════════
-//  PropManager Pro v2.1 — Firebase Realtime Database Edition
-//  แก้ไข: Firestore → Realtime DB + บัคข้อมูลเบิ้ล + Sync จริง
-// ══════════════════════════════════════════════════════════════
+// PropManager Pro v3 — Firebase Realtime DB + Investor Management
+// Bug fixes: ข้อมูลไม่เบิ้ล, chart destroy, demo sync, normDocs
 
-// ── FIREBASE CONFIG (Realtime Database) ────────────────────────
-const FB_CFG = {
-  apiKey: "AIzaSyAad7GNxjfz3nzPeFtBkhB16fO54QAKmOw",
-  authDomain: "fab-checklist-workshop.firebaseapp.com",
-  databaseURL: "https://fab-checklist-workshop-default-rtdb.firebaseio.com",
-  projectId: "fab-checklist-workshop",
-  storageBucket: "fab-checklist-workshop.firebasestorage.app",
-  messagingSenderId: "80900940748",
-  appId: "1:80900940748:web:0ab64b61d5bcc200fdf369"
-};
-const PID = "PJ001"; // path: propmanager/PJ001/...
+const FB_CFG={apiKey:"AIzaSyAad7GNxjfz3nzPeFtBkhB16fO54QAKmOw",authDomain:"fab-checklist-workshop.firebaseapp.com",databaseURL:"https://fab-checklist-workshop-default-rtdb.firebaseio.com",projectId:"fab-checklist-workshop",storageBucket:"fab-checklist-workshop.firebasestorage.app",messagingSenderId:"80900940748",appId:"1:80900940748:web:0ab64b61d5bcc200fdf369"};
+const PID="PJ001";
+let db,PROJ_REF,UNITS_REF,INC_REF,EXP_REF,INV_REF;
 
-// ── DB REFS (set on initFB) ─────────────────────────────────────
-let db, PROJ_REF, UNITS_REF, INC_REF, EXP_REF;
+let S={demo:false,proj:{name:"โครงการบ้านสุขสันต์",value:14000000,startDate:"2026-01-01",endDate:"2026-12-31",manager:"นาย ก",imgUrl:null,mapAddr:"อ.เมือง จ.ปราจีนบุรี",mapLat:"14.0583",mapLng:"101.4142",docs:[]},units:[],income:[],expenses:[],investors:[],tab:'dashboard',pfiles:{},euid:null,eiid:null,eeid:null,eiNvid:null,charts:{}};
 
-// ── DEMO DATA (fallback หาก Firebase ล้มเหลว) ──────────────────
-const DD = {
-  proj:{name:"โครงการบ้านสุขสันต์",value:14000000,startDate:"2026-01-01",endDate:"2026-12-31",manager:"นาย ก",investors:5,imgUrl:null,mapAddr:"อ.เมือง จ.ปราจีนบุรี",mapLat:"14.0583",mapLng:"101.4142",docs:[]},
-  units:[
-    {id:"u1",code:"A01",type:"Type A - 2 ชั้น",area:150,price:3500000,status:"โอนแล้ว",customer:"คุณสมชาย",note:""},
-    {id:"u2",code:"A02",type:"Type A - 2 ชั้น",area:150,price:3500000,status:"จอง",customer:"คุณสมหญิง",note:""},
-    {id:"u3",code:"A03",type:"Type B - 1.5 ชั้น",area:120,price:3500000,status:"พร้อมขาย",customer:"",note:""},
-    {id:"u4",code:"A04",type:"Type B - 1.5 ชั้น",area:120,price:3500000,status:"พร้อมขาย",customer:"",note:""},
-  ],
-  income:[
-    {id:"i1",date:"2026-01-01",unitId:"u1",type:"เงินจอง",customer:"คุณสมชาย",amount:20000,note:"",att:null},
-    {id:"i2",date:"2026-01-15",unitId:"u1",type:"ทำสัญญา",customer:"คุณสมชาย",amount:100000,note:"",att:null},
-    {id:"i3",date:"2026-09-30",unitId:"u1",type:"โอนกรรมสิทธิ์",customer:"คุณสมชาย",amount:3380000,note:"ยอดสินเชื่อ",att:null},
-    {id:"i4",date:"2026-01-05",unitId:"u2",type:"เงินจอง",customer:"คุณสมหญิง",amount:20000,note:"",att:null},
-  ],
-  expenses:[
-    {id:"e1",date:"2026-01-10",cat:"ต้นทุนที่ดิน",item:"ราคาซื้อที่ดิน",vend:"เจ้าของที่ดิน",dnum:"INV-001",amount:2500000,sts:"ชำระแล้ว",note:"",att:null},
-    {id:"e2",date:"2026-01-15",cat:"พัฒนาโครงการ",item:"ถนนคอนกรีต",vend:"บริษัท ABC",dnum:"INV-002",amount:200000,sts:"ชำระแล้ว",note:"",att:null},
-    {id:"e3",date:"2026-01-20",cat:"งานฐานราก",item:"งานเสาเข็ม",vend:"ทีมช่างเสาเข็ม",dnum:"INV-003",amount:200000,sts:"ชำระแล้ว",note:"",att:null},
-    {id:"e4",date:"2026-02-01",cat:"งานฐานราก",item:"งานฐานราก",vend:"ผู้รับเหมา ก",dnum:"INV-004",amount:150000,sts:"ชำระแล้ว",note:"",att:null},
-    {id:"e5",date:"2026-02-15",cat:"งานโครงสร้าง",item:"คอนกรีต คสล.",vend:"ผู้รับเหมา ก",dnum:"INV-005",amount:500000,sts:"ค้างชำระ",note:"",att:null},
-    {id:"e6",date:"2026-03-01",cat:"การตลาด",item:"Facebook Ads",vend:"Facebook",dnum:"INV-006",amount:15000,sts:"ชำระแล้ว",note:"มีนาคม",att:null},
-    {id:"e7",date:"2026-03-15",cat:"ต้นทุนทางการเงิน",item:"ดอกเบี้ย Q1",vend:"ธนาคาร",dnum:"INV-007",amount:87500,sts:"ชำระแล้ว",note:"",att:null},
-  ]
-};
+// ── HELPERS
+const F={thb:n=>'฿'+Math.round(n||0).toLocaleString('th-TH'),pct:n=>((n||0)*100).toFixed(1)+'%',dt:d=>d?new Date(d+'T00:00:00').toLocaleDateString('th-TH-u-ca-gregory',{day:'2-digit',month:'2-digit',year:'numeric'}):'-',sz:b=>b<1024?b+'B':b<1048576?(b/1024).toFixed(0)+'KB':(b/1048576).toFixed(1)+'MB'};
+const td=()=>new Date().toISOString().split('T')[0];
+const g=id=>document.getElementById(id);
+const gv=id=>{const e=g(id);return e?e.value:''};
+const sv=(id,v)=>{const e=g(id);if(e)e.value=v??''};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const ubyid=id=>S.units.find(u=>u.id===id);
+const EI={pdf:'🔴',jpg:'🖼️',jpeg:'🖼️',png:'🖼️',doc:'🔵',docx:'🔵',xls:'🟢',xlsx:'🟢'};
+const SC={โอนแล้ว:'bng',จอง:'bny',พร้อมขาย:'bnb',ยกเลิก:'bnr'};
 
-// ── STATE ────────────────────────────────────────────────────────
-let S = {
-  demo: false,
-  proj: {...DD.proj, docs: []},
-  units: [...DD.units],
-  income: [...DD.income],
-  expenses: [...DD.expenses],
-  tab: 'dashboard',
-  pfiles: {},
-  euid: null, eiid: null, eeid: null,
-  charts: {}
-};
-
-// ── HELPERS ──────────────────────────────────────────────────────
-const F = {
-  thb: n => '฿' + Math.round(n || 0).toLocaleString('th-TH'),
-  pct: n => ((n || 0) * 100).toFixed(1) + '%',
-  dt:  d => d ? new Date(d + 'T00:00:00').toLocaleDateString('th-TH-u-ca-gregory',{day:'2-digit',month:'2-digit',year:'numeric'}) : '-',
-  sz:  b => b < 1024 ? b + 'B' : b < 1048576 ? (b/1024).toFixed(0) + 'KB' : (b/1048576).toFixed(1) + 'MB'
-};
-const td  = () => new Date().toISOString().split('T')[0];
-const g   = id => document.getElementById(id);
-const gv  = id => { const e = g(id); return e ? e.value : ''; };
-const sv  = (id, v) => { const e = g(id); if (e) e.value = v ?? ''; };
-const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,5);
-const ubyid = id => S.units.find(u => u.id === id);
-const EI  = {pdf:'🔴',jpg:'🖼️',jpeg:'🖼️',png:'🖼️',doc:'🔵',docx:'🔵',xls:'🟢',xlsx:'🟢'};
-const SC  = {โอนแล้ว:'bng',จอง:'bny',พร้อมขาย:'bnb',ยกเลิก:'bnr'};
-
-// ── HELPER: ลบ field ที่เป็น null/undefined ก่อนส่ง Realtime DB ──
-// (Realtime DB แปลง null → ลบ field นั้นทิ้ง)
-function cleanData(obj) {
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    // เก็บ false, 0, '' ปกติ แค่กรอง null/undefined
-    if (v !== null && v !== undefined) out[k] = v;
-  }
-  return out;
+// คำนวณสัดส่วนผู้ลงทุนจากเงินจริง
+function calcInvShares(){
+  const total=S.investors.reduce((s,iv)=>s+(iv.amount||0),0);
+  return S.investors.map(iv=>({...iv,share:total>0?(iv.amount||0)/total:0,totalInv:total}));
 }
 
-// ── HELPER: แปลง docs ที่ Realtime DB อาจเปลี่ยน array→object ──
-function normDocs(raw) {
-  if (!raw) return [];
-  if (Array.isArray(raw)) return raw.filter(Boolean);
-  if (typeof raw === 'object') return Object.values(raw).filter(Boolean);
-  return [];
+function cleanData(obj){const out={};for(const[k,v]of Object.entries(obj)){if(v!==null&&v!==undefined)out[k]=v;}return out;}
+function normDocs(raw){if(!raw)return[];if(Array.isArray(raw))return raw.filter(Boolean);if(typeof raw==='object')return Object.values(raw).filter(Boolean);return[];}
+
+// ── STATUS / TOAST
+function setFbSt(s){const e=g('fbst');if(!e)return;e.className=s;if(s==='ok'){e.textContent='● Realtime DB เชื่อมต่อแล้ว';setTimeout(()=>e.style.opacity='0',4000);}else if(s==='err'){e.textContent='✕ ขาดการเชื่อมต่อ';e.style.opacity='1';}else{e.textContent='⟳ กำลังเชื่อมต่อ...';e.style.opacity='1';}}
+function toast(msg,t='ok'){const cls={ok:'tok',err:'terr',info:'tinf',warn:'twrn'};const ico={ok:'✅',err:'❌',info:'ℹ️',warn:'⚠️'};const el=document.createElement('div');el.className=`tst ${cls[t]||'tok'}`;el.innerHTML=`<span>${ico[t]||'✅'}</span><span>${msg}</span>`;g('twrap').appendChild(el);setTimeout(()=>{el.style.animation='tin .3s ease reverse';setTimeout(()=>el.remove(),300);},3200);}
+
+// ── MODAL / NAV
+const oMo=id=>g(id).classList.add('open');
+const cMo=id=>g(id).classList.remove('open');
+function openSB(){g('sidebar').classList.add('open');g('sbov').classList.add('show');}
+function closeSB(){g('sidebar').classList.remove('open');g('sbov').classList.remove('show');}
+function goTab(tab){
+  S.tab=tab;
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sbit').forEach(i=>i.classList.remove('active'));
+  g('panel-'+tab).classList.add('active');
+  const el=document.querySelector(`[data-tab="${tab}"]`);if(el)el.classList.add('active');
+  const tts={dashboard:'Dashboard — ภาพรวม',income:'รายรับ',expense:'รายจ่าย',units:'บ้านแต่ละหลัง',investors:'ผู้ลงทุน',cashflow:'กระแสเงินสด'};
+  g('ttpg').textContent=tts[tab]||tab;closeSB();
+  if(tab==='dashboard')rDash();
+  if(tab==='income'){rUSel();rInc();}
+  if(tab==='expense')rExp();
+  if(tab==='units')rUnits();
+  if(tab==='investors')rInvestors();
+  if(tab==='cashflow')rCF();
 }
 
-// ── FIREBASE STATUS INDICATOR ─────────────────────────────────────
-function setFbSt(s) {
-  const e = g('fbst'); if (!e) return;
-  e.className = s;
-  if (s === 'ok') { e.textContent = '● Realtime DB เชื่อมต่อแล้ว'; setTimeout(() => e.style.opacity = '0', 4000); }
-  else if (s === 'err') { e.textContent = '✕ ขาดการเชื่อมต่อ'; e.style.opacity = '1'; }
-  else { e.textContent = '⟳ กำลังเชื่อมต่อ...'; e.style.opacity = '1'; }
-}
-
-// ── TOAST ────────────────────────────────────────────────────────
-function toast(msg, t = 'ok') {
-  const cls = {ok:'tok',err:'terr',info:'tinf',warn:'twrn'};
-  const ico = {ok:'✅',err:'❌',info:'ℹ️',warn:'⚠️'};
-  const el = document.createElement('div');
-  el.className = `tst ${cls[t]||'tok'}`;
-  el.innerHTML = `<span>${ico[t]||'✅'}</span><span>${msg}</span>`;
-  g('twrap').appendChild(el);
-  setTimeout(() => { el.style.animation = 'tin .3s ease reverse'; setTimeout(() => el.remove(), 300); }, 3200);
-}
-
-// ── MODAL ────────────────────────────────────────────────────────
-const oMo = id => g(id).classList.add('open');
-const cMo = id => g(id).classList.remove('open');
-function openSB()  { g('sidebar').classList.add('open'); g('sbov').classList.add('show'); }
-function closeSB() { g('sidebar').classList.remove('open'); g('sbov').classList.remove('show'); }
-
-// ── NAV ──────────────────────────────────────────────────────────
-function goTab(tab) {
-  S.tab = tab;
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.sbit').forEach(i => i.classList.remove('active'));
-  g('panel-' + tab).classList.add('active');
-  const el = document.querySelector(`[data-tab="${tab}"]`);
-  if (el) el.classList.add('active');
-  const tts = {dashboard:'Dashboard — ภาพรวม',income:'รายรับ',expense:'รายจ่าย',units:'บ้านแต่ละหลัง',cashflow:'กระแสเงินสด'};
-  g('ttpg').textContent = tts[tab];
-  closeSB();
-  if (tab === 'dashboard') rDash();
-  if (tab === 'income')  { rUSel(); rInc(); }
-  if (tab === 'expense') rExp();
-  if (tab === 'units')   rUnits();
-  if (tab === 'cashflow') rCF();
-}
-
-// ══════════════════════════════════════════════════════════════════
-//  FIREBASE REALTIME DATABASE
-// ══════════════════════════════════════════════════════════════════
-function initFB() {
-  try {
-    if (!firebase.apps.length) firebase.initializeApp(FB_CFG);
-    db = firebase.database();
-    const BASE = db.ref('propmanager/' + PID);
-    PROJ_REF  = BASE.child('proj');
-    UNITS_REF = BASE.child('units');
-    INC_REF   = BASE.child('income');
-    EXP_REF   = BASE.child('expenses');
-    g('ltxt').textContent = 'กำลังโหลดข้อมูล...';
-
-    // ตรวจ connection status
-    db.ref('.info/connected').on('value', snap => {
-      setFbSt(snap.val() ? 'ok' : 'err');
-      g('sbsts').textContent = snap.val() ? 'Realtime DB' : 'ขาดการเชื่อมต่อ';
-    });
-
+// ── FIREBASE
+function initFB(){
+  try{
+    if(!firebase.apps.length)firebase.initializeApp(FB_CFG);
+    db=firebase.database();
+    const BASE=db.ref('propmanager/'+PID);
+    PROJ_REF=BASE.child('proj');UNITS_REF=BASE.child('units');
+    INC_REF=BASE.child('income');EXP_REF=BASE.child('expenses');INV_REF=BASE.child('investors');
+    g('ltxt').textContent='กำลังโหลดข้อมูล...';
+    db.ref('.info/connected').on('value',snap=>{setFbSt(snap.val()?'ok':'err');g('sbsts').textContent=snap.val()?'Realtime DB':'ขาดการเชื่อมต่อ';});
     startListeners();
-  } catch(e) {
-    console.error('Firebase init error:', e);
-    goDemo('Firebase Error — ใช้ Demo Mode');
-  }
+  }catch(e){console.error(e);goDemo('Firebase Error — ใช้ Demo Mode');}
 }
 
-function goDemo(msg) {
-  S.demo = true;
-  g('demobdg').style.display = 'inline-flex';
-  g('sbsts').textContent = 'Demo Mode';
-  setFbSt('err');
-  g('ltxt').textContent = msg;
-  setTimeout(() => {
-    g('loading').classList.add('out');
-    rAll();
-    toast('ใช้งานใน Demo Mode — ข้อมูลจะไม่ถูกบันทึก', 'warn');
-  }, 1200);
+function goDemo(msg){
+  S.demo=true;
+  S.investors=[{id:'inv1',name:'นาย ก',amount:3000000,note:'ผู้ก่อตั้ง'},{id:'inv2',name:'นางสาว ข',amount:2000000,note:''},{id:'inv3',name:'บริษัท ABC จำกัด',amount:5000000,note:'นักลงทุนหลัก'}];
+  S.units=[{id:'u1',code:'A01',type:'Type A - 2 ชั้น',area:150,price:3500000,status:'โอนแล้ว',customer:'คุณสมชาย',note:''},{id:'u2',code:'A02',type:'Type A - 2 ชั้น',area:150,price:3500000,status:'จอง',customer:'คุณสมหญิง',note:''},{id:'u3',code:'A03',type:'Type B - 1.5 ชั้น',area:120,price:3500000,status:'พร้อมขาย',customer:'',note:''},{id:'u4',code:'A04',type:'Type B - 1.5 ชั้น',area:120,price:3500000,status:'พร้อมขาย',customer:'',note:''}];
+  S.income=[{id:'i1',date:'2026-01-01',unitId:'u1',type:'เงินจอง',customer:'คุณสมชาย',amount:20000,note:'',att:null},{id:'i2',date:'2026-01-15',unitId:'u1',type:'ทำสัญญา',customer:'คุณสมชาย',amount:100000,note:'',att:null},{id:'i3',date:'2026-09-30',unitId:'u1',type:'โอนกรรมสิทธิ์',customer:'คุณสมชาย',amount:3380000,note:'ยอดสินเชื่อ',att:null},{id:'i4',date:'2026-01-05',unitId:'u2',type:'เงินจอง',customer:'คุณสมหญิง',amount:20000,note:'',att:null}];
+  S.expenses=[{id:'e1',date:'2026-01-10',cat:'ต้นทุนที่ดิน',item:'ราคาซื้อที่ดิน',vend:'เจ้าของที่ดิน',dnum:'INV-001',amount:2500000,sts:'ชำระแล้ว',note:'',att:null},{id:'e2',date:'2026-01-15',cat:'พัฒนาโครงการ',item:'ถนนคอนกรีต',vend:'บริษัท ABC',dnum:'INV-002',amount:200000,sts:'ชำระแล้ว',note:'',att:null},{id:'e3',date:'2026-01-20',cat:'งานฐานราก',item:'งานเสาเข็ม',vend:'ทีมช่างเสาเข็ม',dnum:'INV-003',amount:200000,sts:'ชำระแล้ว',note:'',att:null},{id:'e4',date:'2026-02-01',cat:'งานฐานราก',item:'งานฐานราก',vend:'ผู้รับเหมา ก',dnum:'INV-004',amount:150000,sts:'ชำระแล้ว',note:'',att:null},{id:'e5',date:'2026-02-15',cat:'งานโครงสร้าง',item:'คอนกรีต คสล.',vend:'ผู้รับเหมา ก',dnum:'INV-005',amount:500000,sts:'ค้างชำระ',note:'',att:null},{id:'e6',date:'2026-03-01',cat:'การตลาด',item:'Facebook Ads',vend:'Facebook',dnum:'INV-006',amount:15000,sts:'ชำระแล้ว',note:'',att:null},{id:'e7',date:'2026-03-15',cat:'ต้นทุนทางการเงิน',item:'ดอกเบี้ย Q1',vend:'ธนาคาร',dnum:'INV-007',amount:87500,sts:'ชำระแล้ว',note:'',att:null}];
+  g('demobdg').style.display='inline-flex';g('sbsts').textContent='Demo Mode';setFbSt('err');g('ltxt').textContent=msg;
+  setTimeout(()=>{g('loading').classList.add('out');rAll();toast('ใช้งานใน Demo Mode — ข้อมูลจะไม่ถูกบันทึก','warn');},1200);
 }
 
-function startListeners() {
-  // ใช้ flag ตรวจว่า listener ทุกตัว ready ก่อนซ่อน loading screen
-  let ldd = {proj: false, units: false, income: false, expenses: false};
-  const isLoaded = () => g('loading').classList.contains('out');
-  const chk = () => {
-    if (Object.values(ldd).every(Boolean)) {
-      g('loading').classList.add('out');
-      rAll();
-      toast('🎉 เชื่อมต่อ Firebase Realtime DB สำเร็จ!', 'ok');
-      setFbSt('ok');
-    }
-  };
-
-  // ── Seed project ถ้ายังไม่มีข้อมูลใน DB ──
-  PROJ_REF.once('value').then(snap => {
-    if (!snap.val()) {
-      PROJ_REF.set(cleanData({
-        name:'โครงการบ้านสุขสันต์', value:14000000,
-        startDate:'2026-01-01', endDate:'2026-12-31',
-        manager:'นาย ก', investors:5,
-        mapAddr:'อ.เมือง จ.ปราจีนบุรี', mapLat:'14.0583', mapLng:'101.4142'
-      }));
-    }
-  }).catch(() => {});
-
-  // ── PROJ listener ──
-  PROJ_REF.on('value', snap => {
-    const d = snap.val();
-    if (d) {
-      d.docs = normDocs(d.docs); // Realtime DB อาจแปลง array→object
-      S.proj = d;
-    }
-    ldd.proj = true; chk();
-    if (isLoaded()) rProjInfo();
-  }, () => { ldd.proj = true; chk(); });
-
-  // ── UNITS listener ──
-  UNITS_REF.on('value', snap => {
-    const d = snap.val();
-    S.units = d
-      ? Object.entries(d).map(([k,v]) => ({id:k,...v})).sort((a,b) => (a.code||'').localeCompare(b.code))
-      : [];
-    ldd.units = true; chk();
-    if (isLoaded()) { rUSel(); if (S.tab==='units') rUnits(); rKPI(); }
-  }, () => { ldd.units = true; chk(); });
-
-  // ── INCOME listener ──
-  INC_REF.on('value', snap => {
-    const d = snap.val();
-    S.income = d
-      ? Object.entries(d).map(([k,v]) => ({id:k,...v})).sort((a,b) => (b.date||'').localeCompare(a.date||''))
-      : [];
-    ldd.income = true; chk();
-    if (isLoaded()) { rKPI(); if (S.tab==='income') rInc(); if (S.tab==='cashflow') rCF(); rDash(); }
-  }, () => { ldd.income = true; chk(); });
-
-  // ── EXPENSES listener ──
-  EXP_REF.on('value', snap => {
-    const d = snap.val();
-    S.expenses = d
-      ? Object.entries(d).map(([k,v]) => ({id:k,...v})).sort((a,b) => (b.date||'').localeCompare(a.date||''))
-      : [];
-    ldd.expenses = true; chk();
-    if (isLoaded()) { rKPI(); if (S.tab==='expense') rExp(); if (S.tab==='cashflow') rCF(); rDash(); }
-  }, () => { ldd.expenses = true; chk(); });
-
-  // Timeout fallback
-  setTimeout(() => {
-    if (!isLoaded()) goDemo('Firebase timeout — ใช้ Demo Mode');
-  }, 9000);
+function startListeners(){
+  let ldd={proj:false,units:false,income:false,expenses:false,investors:false};
+  const isLoaded=()=>g('loading').classList.contains('out');
+  const chk=()=>{if(Object.values(ldd).every(Boolean)){g('loading').classList.add('out');rAll();toast('🎉 เชื่อมต่อ Firebase Realtime DB สำเร็จ!','ok');setFbSt('ok');}};
+  PROJ_REF.once('value').then(snap=>{if(!snap.val())PROJ_REF.set(cleanData({name:'โครงการบ้านสุขสันต์',value:14000000,startDate:'2026-01-01',endDate:'2026-12-31',manager:'นาย ก',mapAddr:'อ.เมือง จ.ปราจีนบุรี',mapLat:'14.0583',mapLng:'101.4142'}));}).catch(()=>{});
+  PROJ_REF.on('value',snap=>{const d=snap.val();if(d){d.docs=normDocs(d.docs);S.proj=d;}ldd.proj=true;chk();if(isLoaded())rProjInfo();},()=>{ldd.proj=true;chk();});
+  UNITS_REF.on('value',snap=>{const d=snap.val();S.units=d?Object.entries(d).map(([k,v])=>({id:k,...v})).sort((a,b)=>(a.code||'').localeCompare(b.code)):[];ldd.units=true;chk();if(isLoaded()){rUSel();if(S.tab==='units')rUnits();rKPI();}},()=>{ldd.units=true;chk();});
+  INC_REF.on('value',snap=>{const d=snap.val();S.income=d?Object.entries(d).map(([k,v])=>({id:k,...v})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')):[];ldd.income=true;chk();if(isLoaded()){rKPI();if(S.tab==='income')rInc();if(S.tab==='cashflow')rCF();if(S.tab==='investors')rInvestors();rDash();}},()=>{ldd.income=true;chk();});
+  EXP_REF.on('value',snap=>{const d=snap.val();S.expenses=d?Object.entries(d).map(([k,v])=>({id:k,...v})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')):[];ldd.expenses=true;chk();if(isLoaded()){rKPI();if(S.tab==='expense')rExp();if(S.tab==='cashflow')rCF();if(S.tab==='investors')rInvestors();rDash();}},()=>{ldd.expenses=true;chk();});
+  INV_REF.on('value',snap=>{const d=snap.val();S.investors=d?Object.entries(d).map(([k,v])=>({id:k,...v})).sort((a,b)=>(b.amount||0)-(a.amount||0)):[];ldd.investors=true;chk();if(isLoaded()){if(S.tab==='investors')rInvestors();if(S.tab==='cashflow')rCF();}},()=>{ldd.investors=true;chk();});
+  setTimeout(()=>{if(!isLoaded())goDemo('Firebase timeout — ใช้ Demo Mode');},9000);
 }
 
-// ── DB WRITE / DELETE / PROJECT UPDATE ─────────────────────────
-const RDBREFS = () => ({units: UNITS_REF, income: INC_REF, expenses: EXP_REF});
+function getRef(col){return{units:UNITS_REF,income:INC_REF,expenses:EXP_REF,investors:INV_REF}[col];}
+async function dbW(col,id,data){
+  if(S.demo){const a=S[col];const i=a.findIndex(r=>r.id===id);if(i>=0)a[i]={...a[i],...data,id};else a.unshift({id,...data});return;}
+  await getRef(col).child(id).set(cleanData(data));
+}
+async function dbD(col,id){if(S.demo){S[col]=S[col].filter(r=>r.id!==id);return;}await getRef(col).child(id).remove();}
+async function dbP(data){if(S.demo){S.proj={...S.proj,...data};return;}await PROJ_REF.update(cleanData(data));}
 
-async function dbW(col, id, data) {
-  if (S.demo) {
-    // DEMO: อัปเดต local array (ไม่ได้ persist)
-    const a = S[col];
-    const i = a.findIndex(r => r.id === id);
-    if (i >= 0) a[i] = {...a[i], ...data};
-    else a.unshift({id, ...data});
-    return;
-  }
-  // Firebase: เขียนลง Realtime DB → listener จะ trigger re-render อัตโนมัติ
-  await RDBREFS()[col].child(id).set(cleanData(data));
-}
-
-async function dbD(col, id) {
-  if (S.demo) { S[col] = S[col].filter(r => r.id !== id); return; }
-  await RDBREFS()[col].child(id).remove();
-}
-
-async function dbP(data) {
-  if (S.demo) { S.proj = {...S.proj, ...data}; return; }
-  await PROJ_REF.update(cleanData(data));
-}
-
-// ══════════════════════════════════════════════════════════════════
-//  FILE ATTACHMENT
-// ══════════════════════════════════════════════════════════════════
-function onFile(k, inp) {
-  const f = inp.files[0]; if (!f) return;
-  if (f.size > 1.5 * 1024 * 1024) { toast('ไฟล์ใหญ่เกิน 1.5MB', 'err'); inp.value = ''; return; }
-  const r = new FileReader();
-  r.onload = ev => {
-    S.pfiles[k] = {name:f.name, type:f.type, size:f.size, data:ev.target.result};
-    showFPrev(k, f);
-  };
-  r.readAsDataURL(f);
-}
-function onDrop(ev, k) {
-  ev.preventDefault(); ev.currentTarget.classList.remove('drag');
-  const f = ev.dataTransfer.files[0]; if (!f) return;
-  const dt = new DataTransfer(); dt.items.add(f);
-  const inp = g(k + 'file'); if (inp) { inp.files = dt.files; onFile(k, inp); }
-}
-function showFPrev(k, f) {
-  const ext = f.name.split('.').pop().toLowerCase();
-  const drop = g(k + 'drop'), prev = g(k + 'prev');
-  if (drop) drop.style.display = 'none';
-  if (prev) prev.style.display = 'flex';
-  const pico = g(k + 'pico') || g(k + 'pico');
-  if (g(k + 'pico')) g(k + 'pico').textContent = EI[ext] || '📄';
-  if (g(k + 'fnam')) g(k + 'fnam').textContent = f.name;
-  if (g(k + 'fsz'))  g(k + 'fsz').textContent  = F.sz(f.size);
-  if (g(k + 'fname')) g(k + 'fname').textContent = f.name;
-  if (g(k + 'fsize')) g(k + 'fsize').textContent = F.sz(f.size);
-}
-function clrFile(k) {
-  delete S.pfiles[k];
-  const d = g(k + 'drop'); if (d) d.style.display = '';
-  const p = g(k + 'prev'); if (p) p.style.display = 'none';
-  const inp = g(k + 'file'); if (inp) inp.value = '';
-}
-function dlFile(att) {
-  if (!att || !att.data) { toast('ไม่พบไฟล์เอกสาร', 'err'); return; }
-  const a = document.createElement('a'); a.href = att.data; a.download = att.name;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  toast(`ดาวน์โหลด ${att.name}`, 'ok');
-}
-function attHTML(att) {
-  if (!att || !att.data) return '<span style="color:var(--hi);font-size:12px">—</span>';
-  const ext = (att.name || '').split('.').pop().toLowerCase();
-  const n = att.name.length > 18 ? att.name.slice(0, 16) + '…' : att.name;
-  return `<div class="ach" onclick='dlFile(${JSON.stringify(att).replace(/'/g,"&#39;")})' title="${att.name}&#10;${F.sz(att.size)}">
-    <span>${EI[ext]||'📄'}</span><span>${n}</span></div>`;
-}
-
-// ══════════════════════════════════════════════════════════════════
-//  RENDER
-// ══════════════════════════════════════════════════════════════════
-function rAll() { rProjInfo(); rKPI(); rDash(); rUSel(); }
-
-function rProjInfo() {
-  const p = S.proj;
-  if (g('pnd')) g('pnd').textContent = p.name || 'โครงการ';
-  if (g('pvd')) g('pvd').textContent = F.thb(p.value || 0);
-  if (g('pud')) g('pud').textContent = S.units.length + ' หลัง';
-  if (g('psd')) g('psd').textContent = p.startDate ? F.dt(p.startDate) : '-';
-  if (g('pmd')) g('pmd').textContent = p.manager || '-';
-  if (p.imgUrl && g('pimgw'))
-    g('pimgw').innerHTML = `<img src="${p.imgUrl}" alt="p" style="width:100%;height:100%;object-fit:cover">`;
-  if (p.mapAddr && g('mztxt'))
-    g('mztxt').innerHTML = `<span style="font-weight:600;font-size:12px">${p.mapAddr}</span><br><span style="font-size:10px;color:var(--p)">แตะเพื่อแก้ไข</span>`;
+// ── FILE
+function onFile(k,inp){const f=inp.files[0];if(!f)return;if(f.size>1.5*1024*1024){toast('ไฟล์ใหญ่เกิน 1.5MB','err');inp.value='';return;}const r=new FileReader();r.onload=ev=>{S.pfiles[k]={name:f.name,type:f.type,size:f.size,data:ev.target.result};showFPrev(k,f);};r.readAsDataURL(f);}
+function onDrop(ev,k){ev.preventDefault();ev.currentTarget.classList.remove('drag');const f=ev.dataTransfer.files[0];if(!f)return;const dt=new DataTransfer();dt.items.add(f);const inp=g(k+'file');if(inp){inp.files=dt.files;onFile(k,inp);}}
+function showFPrev(k,f){const ext=f.name.split('.').pop().toLowerCase();const drop=g(k+'drop'),prev=g(k+'prev');if(drop)drop.style.display='none';if(prev)prev.style.display='flex';if(g(k+'pico'))g(k+'pico').textContent=EI[ext]||'📄';if(g(k+'fname'))g(k+'fname').textContent=f.name;if(g(k+'fsize'))g(k+'fsize').textContent=F.sz(f.size);if(g(k+'fnam'))g(k+'fnam').textContent=f.name;if(g(k+'fsz'))g(k+'fsz').textContent=F.sz(f.size);}
+function clrFile(k){delete S.pfiles[k];const d=g(k+'drop');if(d)d.style.display='';const p=g(k+'prev');if(p)p.style.display='none';const inp=g(k+'file');if(inp)inp.value='';}
+function dlFile(att){if(!att||!att.data){toast('ไม่พบไฟล์เอกสาร','err');return;}const a=document.createElement('a');a.href=att.data;a.download=att.name;document.body.appendChild(a);a.click();document.body.removeChild(a);toast('ดาวน์โหลด '+att.name,'ok');}
+function attHTML(att){if(!att||!att.data)return'<span style="color:var(--hi);font-size:12px">—</span>';const ext=(att.name||'').split('.').pop().toLowerCase();const n=att.name.length>18?att.name.slice(0,16)+'…':att.name;return`<div class="ach" onclick='dlFile(${JSON.stringify(att).replace(/'/g,"&#39;")})' title="${att.name}"><span>${EI[ext]||'📄'}</span><span>${n}</span></div>`;}
+// ── RENDER
+function rAll(){rProjInfo();rKPI();rDash();rUSel();}
+function rProjInfo(){
+  const p=S.proj;
+  if(g('pnd'))g('pnd').textContent=p.name||'โครงการ';
+  if(g('pvd'))g('pvd').textContent=F.thb(p.value||0);
+  if(g('pud'))g('pud').textContent=S.units.length+' หลัง';
+  if(g('psd'))g('psd').textContent=p.startDate?F.dt(p.startDate):'-';
+  if(g('pmd'))g('pmd').textContent=p.manager||'-';
+  if(p.imgUrl&&g('pimgw'))g('pimgw').innerHTML=`<img src="${p.imgUrl}" alt="p" style="width:100%;height:100%;object-fit:cover">`;
+  if(p.mapAddr&&g('mztxt'))g('mztxt').innerHTML=`<span style="font-weight:600;font-size:12px">${p.mapAddr}</span><br><span style="font-size:10px;color:var(--p)">แตะเพื่อแก้ไข</span>`;
   rPDocs();
 }
-
-function rPDocs() {
-  const docs = normDocs(S.proj.docs);
-  const el = g('pdoclist'); if (!el) return;
-  if (!docs.length) { el.innerHTML = '<div style="font-size:11.5px;color:var(--hi);text-align:center;padding:12px 0">ยังไม่มีเอกสาร</div>'; return; }
-  el.innerHTML = docs.map((d, i) => {
-    const ext = (d.name || '').split('.').pop().toLowerCase();
-    return `<div class="ditem">
-      <span style="font-size:16px">${EI[ext]||'📄'}</span>
-      <div style="flex:1;min-width:0"><div style="font-weight:500;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.name}</div><div style="font-size:10px;color:var(--hi)">${d.size}</div></div>
-      <div style="display:flex;gap:3px">
-        <button class="tb ta" onclick='dlFile(${JSON.stringify(d).replace(/'/g,"&#39;")})' title="ดาวน์โหลด"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
-        <button class="tb td2" onclick="delPD(${i})" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg></button>
-      </div>
-    </div>`;
-  }).join('');
+function rPDocs(){
+  const docs=normDocs(S.proj.docs);const el=g('pdoclist');if(!el)return;
+  if(!docs.length){el.innerHTML='<div style="font-size:11.5px;color:var(--hi);text-align:center;padding:12px 0">ยังไม่มีเอกสาร</div>';return;}
+  el.innerHTML=docs.map((d,i)=>{const ext=(d.name||'').split('.').pop().toLowerCase();return`<div class="ditem"><span style="font-size:16px">${EI[ext]||'📄'}</span><div style="flex:1;min-width:0"><div style="font-weight:500;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.name}</div><div style="font-size:10px;color:var(--hi)">${d.size}</div></div><div style="display:flex;gap:3px"><button class="tb ta" onclick='dlFile(${JSON.stringify(d).replace(/'/g,"&#39;")})' title="ดาวน์โหลด"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button><button class="tb td2" onclick="delPD(${i})" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg></button></div></div>`;}).join('');
 }
-
-function rKPI() {
-  const ti = S.income.reduce((s,r) => s+r.amount, 0);
-  const te = S.expenses.reduce((s,r) => s+r.amount, 0);
-  const pv = S.proj.value || 14000000;
-  const sold = S.units.filter(u => u.status==='โอนแล้ว'||u.status==='จอง').length;
-  const pr = ti - te;
-  if (!g('kgrid')) return;
-  g('kgrid').innerHTML = [
+function rKPI(){
+  const ti=S.income.reduce((s,r)=>s+r.amount,0);const te=S.expenses.reduce((s,r)=>s+r.amount,0);
+  const pv=S.proj.value||14000000;const sold=S.units.filter(u=>u.status==='โอนแล้ว'||u.status==='จอง').length;const pr=ti-te;
+  if(!g('kgrid'))return;
+  g('kgrid').innerHTML=[
     {l:'มูลค่าโครงการ',v:F.thb(pv),s:'เป้าหมายทั้งหมด',c:'kp',ic:'ip',svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>'},
     {l:'รายรับสะสม',v:F.thb(ti),s:F.pct(ti/pv)+' ของมูลค่าโครงการ',c:'kg',ic:'ig',p:ti/pv,pb:'var(--g)',svg:'<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>'},
     {l:'รายจ่ายสะสม',v:F.thb(te),s:F.pct(te/pv)+' ของมูลค่าโครงการ',c:'kr',ic:'ir',p:Math.min(te/pv,1),pb:'var(--r)',svg:'<polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>'},
     {l:'กำไร/ขาดทุน',v:F.thb(pr),s:pr>=0?'✅ มีกำไร':'⚠️ ขาดทุน',c:pr>=0?'kg':'kr',ic:pr>=0?'ig':'ir',svg:'<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>'},
-    {l:'บ้านขายแล้ว',v:`${sold}/${S.units.length} หลัง`,s:F.pct(S.units.length?sold/S.units.length:0),c:'kv',ic:'iv',p:S.units.length?sold/S.units.length:0,pb:'#8B5CF6',svg:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'},
+    {l:'บ้านขายแล้ว',v:`${sold}/${S.units.length} หลัง`,s:F.pct(S.units.length?sold/S.units.length:0),c:'kv2',ic:'iv',p:S.units.length?sold/S.units.length:0,pb:'#8B5CF6',svg:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'},
     {l:'% รับเงินแล้ว',v:F.pct(pv>0?ti/pv:0),s:'จากมูลค่าโครงการ',c:'kt',ic:'it',p:Math.min(ti/pv,1),pb:'#14B8A6',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
-  ].map(k=>`<div class="kpi ${k.c}">
-    <div class="kin ${k.ic}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${k.svg}</svg></div>
-    <div class="kl">${k.l}</div><div class="kv">${k.v}</div><div class="ks">${k.s}</div>
-    ${k.p!=null?`<div class="kb"><div class="kbf" style="width:${Math.min(100,(k.p||0)*100).toFixed(0)}%;background:${k.pb}"></div></div>`:''}
-  </div>`).join('');
+  ].map(k=>`<div class="kpi ${k.c}"><div class="kin ${k.ic}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${k.svg}</svg></div><div class="kl">${k.l}</div><div class="kvv">${k.v}</div><div class="ks">${k.s}</div>${k.p!=null?`<div class="kb"><div class="kbf" style="width:${Math.min(100,(k.p||0)*100).toFixed(0)}%;background:${k.pb}"></div></div>`:''}</div>`).join('');
 }
-
-function rDash() {
-  rProjInfo(); rKPI();
-  if (g('dunits')) g('dunits').innerHTML = S.units.length ? S.units.map(u=>`
-    <div class="stat">
-      <div><div style="font-weight:600;font-size:13px">${u.code} <span style="font-weight:400;font-size:12px;color:var(--mu)">${u.type||''}</span></div>${u.customer?`<div style="font-size:11.5px;color:var(--mu)">👤 ${u.customer}</div>`:''}</div>
-      <span class="badge ${SC[u.status]||'bngr'}">${u.status}</span>
-    </div>`).join('') : '<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><p>ยังไม่มีข้อมูลบ้าน</p></div>';
-  const rec = [...S.expenses].sort((a,b) => (b.date||'').localeCompare(a.date||'')).slice(0,6);
-  if (g('dexps')) g('dexps').innerHTML = rec.length ? rec.map(e=>`
-    <div class="stat">
-      <div><div style="font-weight:500;font-size:13px">${e.item}${e.att&&e.att.data?'<span style="margin-left:5px" title="มีเอกสารแนบ">📎</span>':''}</div><div style="font-size:11.5px;color:var(--mu)">${e.cat} · ${F.dt(e.date)}</div></div>
-      <div style="font-weight:600;color:var(--r);font-family:Inter,sans-serif;font-size:13px">${F.thb(e.amount)}</div>
-    </div>`).join('') : '<div class="empty"><p>ยังไม่มีรายจ่าย</p></div>';
+function rDash(){
+  rProjInfo();rKPI();
+  if(g('dunits'))g('dunits').innerHTML=S.units.length?S.units.map(u=>`<div class="stat"><div><div style="font-weight:600;font-size:13px">${u.code} <span style="font-weight:400;font-size:12px;color:var(--mu)">${u.type||''}</span></div>${u.customer?`<div style="font-size:11.5px;color:var(--mu)">👤 ${u.customer}</div>`:''}</div><span class="badge ${SC[u.status]||'bngr'}">${u.status}</span></div>`).join(''):'<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><p>ยังไม่มีข้อมูลบ้าน</p></div>';
+  const rec=[...S.expenses].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,6);
+  if(g('dexps'))g('dexps').innerHTML=rec.length?rec.map(e=>`<div class="stat"><div><div style="font-weight:500;font-size:13px">${e.item}</div><div style="font-size:11.5px;color:var(--mu)">${e.cat} · ${F.dt(e.date)}</div></div><div style="font-weight:600;color:var(--r);font-family:Inter,sans-serif;font-size:13px">${F.thb(e.amount)}</div></div>`).join(''):'<div class="empty"><p>ยังไม่มีรายจ่าย</p></div>';
 }
-
-function rUSel() {
-  const opts = '<option value="">-- เลือกแปลง --</option>' + S.units.map(u=>`<option value="${u.id}">${u.code}${u.customer?' · '+u.customer:''} (${u.status})</option>`).join('');
-  [g('iunit'),g('miunit')].forEach(el => { if (el) { const pv = el.value; el.innerHTML = opts; el.value = pv; } });
+function rUSel(){
+  const opts='<option value="">-- เลือกแปลง --</option>'+S.units.map(u=>`<option value="${u.id}">${u.code}${u.customer?' · '+u.customer:''} (${u.status})</option>`).join('');
+  [g('iunit'),g('miunit')].forEach(el=>{if(el){const pv=el.value;el.innerHTML=opts;el.value=pv;}});
 }
-
-function rInc() {
-  const tot = S.income.reduce((s,r) => s+r.amount, 0);
-  if (g('icnt')) g('icnt').textContent = S.income.length;
-  if (g('itot')) g('itot').textContent = F.thb(tot);
-  if (!g('itb')) return;
-  if (!S.income.length) { g('itb').innerHTML = `<tr><td colspan="8"><div class="empty" style="padding:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><p>ยังไม่มีรายรับ</p></div></td></tr>`; return; }
-  g('itb').innerHTML = S.income.map(r => {
-    const u = ubyid(r.unitId);
-    return `<tr class="${r.att&&r.att.data?'hatt':''}">
-      <td style="white-space:nowrap">${F.dt(r.date)}</td>
-      <td><span class="badge bnb">${u?u.code:'-'}</span></td>
-      <td>${r.type||''}</td>
-      <td style="font-size:12.5px">${r.customer||'-'}</td>
-      <td style="text-align:right;font-weight:700;color:var(--g);font-family:Inter,sans-serif">${F.thb(r.amount)}</td>
-      <td>${attHTML(r.att)}</td>
-      <td style="color:var(--mu);font-size:12px">${r.note||'-'}</td>
-      <td><div class="tacts">
-        <button class="tb te" onclick="openMI('${r.id}')" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-        <button class="tb td2" onclick="delI('${r.id}')" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
-      </div></td>
-    </tr>`;
-  }).join('');
+function rInc(){
+  const tot=S.income.reduce((s,r)=>s+r.amount,0);
+  if(g('icnt'))g('icnt').textContent=S.income.length;if(g('itot'))g('itot').textContent=F.thb(tot);
+  if(!g('itb'))return;
+  if(!S.income.length){g('itb').innerHTML=`<tr><td colspan="8"><div class="empty" style="padding:24px"><p>ยังไม่มีรายรับ</p></div></td></tr>`;return;}
+  g('itb').innerHTML=S.income.map(r=>{const u=ubyid(r.unitId);return`<tr class="${r.att&&r.att.data?'hatt':''}"><td style="white-space:nowrap">${F.dt(r.date)}</td><td><span class="badge bnb">${u?u.code:'-'}</span></td><td>${r.type||''}</td><td style="font-size:12.5px">${r.customer||'-'}</td><td style="text-align:right;font-weight:700;color:var(--g);font-family:Inter,sans-serif">${F.thb(r.amount)}</td><td>${attHTML(r.att)}</td><td style="color:var(--mu);font-size:12px">${r.note||'-'}</td><td><div class="tacts"><button class="tb te" onclick="openMI('${r.id}')" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tb td2" onclick="delI('${r.id}')" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button></div></td></tr>`;}).join('');
 }
-
-function rExp() {
-  const tot = S.expenses.reduce((s,r) => s+r.amount, 0);
-  if (g('ecnt')) g('ecnt').textContent = S.expenses.length;
-  if (g('etot')) g('etot').textContent = F.thb(tot);
-  const sc = {ชำระแล้ว:'bng',ค้างชำระ:'bnr',รออนุมัติ:'bny'};
-  if (!g('etb')) return;
-  if (!S.expenses.length) { g('etb').innerHTML = `<tr><td colspan="9"><div class="empty" style="padding:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><p>ยังไม่มีรายจ่าย</p></div></td></tr>`; return; }
-  g('etb').innerHTML = S.expenses.map(r=>`
-    <tr class="${r.att&&r.att.data?'hatt':''}">
-      <td style="white-space:nowrap">${F.dt(r.date)}</td>
-      <td style="font-size:11.5px;white-space:nowrap">${r.cat||''}</td>
-      <td style="font-weight:500">${r.item||''}</td>
-      <td style="color:var(--mu);font-size:12px">${r.vend||'-'}</td>
-      <td style="font-size:12px;color:var(--hi)">${r.dnum||'-'}</td>
-      <td style="text-align:right;font-weight:700;color:var(--r);font-family:Inter,sans-serif">${F.thb(r.amount)}</td>
-      <td><span class="badge ${sc[r.sts]||'bngr'}">${r.sts||''}</span></td>
-      <td>${attHTML(r.att)}</td>
-      <td><div class="tacts">
-        <button class="tb te" onclick="openME('${r.id}')" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-        <button class="tb td2" onclick="delE('${r.id}')" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
-      </div></td>
-    </tr>`).join('');
+function rExp(){
+  const tot=S.expenses.reduce((s,r)=>s+r.amount,0);
+  if(g('ecnt'))g('ecnt').textContent=S.expenses.length;if(g('etot'))g('etot').textContent=F.thb(tot);
+  const sc={ชำระแล้ว:'bng',ค้างชำระ:'bnr',รออนุมัติ:'bny'};
+  if(!g('etb'))return;
+  if(!S.expenses.length){g('etb').innerHTML=`<tr><td colspan="9"><div class="empty" style="padding:24px"><p>ยังไม่มีรายจ่าย</p></div></td></tr>`;return;}
+  g('etb').innerHTML=S.expenses.map(r=>`<tr class="${r.att&&r.att.data?'hatt':''}"><td style="white-space:nowrap">${F.dt(r.date)}</td><td style="font-size:11.5px;white-space:nowrap">${r.cat||''}</td><td style="font-weight:500">${r.item||''}</td><td style="color:var(--mu);font-size:12px">${r.vend||'-'}</td><td style="font-size:12px;color:var(--hi)">${r.dnum||'-'}</td><td style="text-align:right;font-weight:700;color:var(--r);font-family:Inter,sans-serif">${F.thb(r.amount)}</td><td><span class="badge ${sc[r.sts]||'bngr'}">${r.sts||''}</span></td><td>${attHTML(r.att)}</td><td><div class="tacts"><button class="tb te" onclick="openME('${r.id}')" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tb td2" onclick="delE('${r.id}')" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button></div></td></tr>`).join('');
 }
+function rUnits(){
+  if(g('ucnt'))g('ucnt').textContent=S.units.length;if(!g('ugrid'))return;
+  g('ugrid').innerHTML=S.units.length?S.units.map(u=>`<div class="ucard"><div class="utop"><div class="ucode">${u.code}</div><span class="badge ${SC[u.status]||'bngr'}">${u.status}</span></div><div class="uprice">${F.thb(u.price)}</div><div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>${u.type||'-'}</div><div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>${u.area||0} ตร.ม.</div>${u.customer?`<div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${u.customer}</div>`:'<div class="umeta" style="color:var(--hi)">ยังไม่มีลูกค้า</div>'}${u.note?`<div style="font-size:11.5px;color:var(--hi);margin-top:4px">${u.note}</div>`:''}<div class="uacts"><button class="btn bgh bsm" onclick="openUM('${u.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>แก้ไข</button><button class="btn br2 bsm" onclick="delU('${u.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>ลบ</button></div></div>`).join(''):'<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><p>ยังไม่มีข้อมูลบ้าน</p></div>';
+}
+// ── RENDER INVESTORS
+function rInvestors(){
+  const ti=S.income.reduce((s,r)=>s+r.amount,0);
+  const te=S.expenses.reduce((s,r)=>s+r.amount,0);
+  const profit=ti-te;
+  const ivs=calcInvShares();
+  const totalInv=ivs.reduce((s,iv)=>s+(iv.amount||0),0);
+  const pv=S.proj.value||14000000;
 
-function rUnits() {
-  if (g('ucnt')) g('ucnt').textContent = S.units.length;
-  if (!g('ugrid')) return;
-  g('ugrid').innerHTML = S.units.length ? S.units.map(u=>`
-    <div class="ucard">
-      <div class="utop"><div class="ucode">${u.code}</div><span class="badge ${SC[u.status]||'bngr'}">${u.status}</span></div>
-      <div class="uprice">${F.thb(u.price)}</div>
-      <div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>${u.type||'-'}</div>
-      <div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>${u.area||0} ตร.ม.</div>
-      ${u.customer?`<div class="umeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${u.customer}</div>`:'<div class="umeta" style="color:var(--hi)">ยังไม่มีลูกค้า</div>'}
-      ${u.note?`<div style="font-size:11.5px;color:var(--hi);margin-top:4px">${u.note}</div>`:''}
-      <div class="uacts">
-        <button class="btn bgh bsm" onclick="openUM('${u.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>แก้ไข</button>
-        <button class="btn br2 bsm" onclick="delU('${u.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>ลบ</button>
+  // Summary boxes
+  const sumEl=g('inv-summary');
+  if(sumEl){
+    const pBar=totalInv>0&&pv>0?Math.min(100,(totalInv/pv)*100):0;
+    const pc=profit>=0?'var(--g)':'var(--r)';
+    const pb=profit>=0?'var(--gb)':'var(--rb)';
+    const pbd=profit>=0?'#A7F3D0':'#FECACA';
+    const roi=te>0?((profit/te)*100).toFixed(1):0;
+    sumEl.innerHTML=`
+      <div class="inv-sum-box" style="background:var(--pb);border:1px solid #C7D2FE">
+        <div class="ilbl">เงินลงทุนรวมทั้งหมด</div>
+        <div style="font-size:22px;font-weight:700;color:var(--p);font-family:Inter,sans-serif">${F.thb(totalInv)}</div>
+        <div style="height:4px;background:var(--bd2);border-radius:2px;margin:8px 0 4px;overflow:hidden"><div style="height:100%;width:${pBar.toFixed(0)}%;background:var(--p);border-radius:2px;transition:width .6s"></div></div>
+        <div class="ks">${pBar.toFixed(1)}% ของมูลค่าโครงการ</div>
       </div>
-    </div>`).join('') : '<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><p>ยังไม่มีข้อมูลบ้าน</p></div>';
-}
-
-function rCF() {
-  const mn = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-  const iM = Array(12).fill(0), eM = Array(12).fill(0);
-  S.income.forEach(r => { if (r.date) iM[new Date(r.date+'T00:00:00').getMonth()] += (r.amount||0); });
-  S.expenses.forEach(r => { if (r.date) eM[new Date(r.date+'T00:00:00').getMonth()] += (r.amount||0); });
-  let cn = 0, ci = 0; const cumN = [], cumI = [];
-  for (let i = 0; i < 12; i++) { ci += iM[i]; cn += (iM[i]-eM[i]); cumI.push(ci); cumN.push(cn); }
-  const chOpts = {responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,font:{family:'Sarabun',size:11}}}},scales:{y:{ticks:{callback:v=>F.thb(v),font:{family:'Sarabun',size:10}},grid:{color:'#F1F5F9'}},x:{ticks:{font:{family:'Sarabun',size:10}},grid:{display:false}}}};
-  if (S.charts.bar) S.charts.bar.destroy();
-  if (g('barchart')) S.charts.bar = new Chart(g('barchart').getContext('2d'),{type:'bar',data:{labels:mn,datasets:[{label:'รายรับ',data:iM,backgroundColor:'rgba(16,185,129,.8)',borderRadius:5,borderSkipped:false},{label:'รายจ่าย',data:eM,backgroundColor:'rgba(239,68,68,.75)',borderRadius:5,borderSkipped:false}]},options:chOpts});
-  const ec = {}; S.expenses.forEach(r => { ec[r.cat] = (ec[r.cat]||0) + (r.amount||0); });
-  const ck = Object.keys(ec), clrs = ['#6366F1','#EF4444','#F59E0B','#10B981','#8B5CF6','#14B8A6','#F97316','#EC4899','#06B6D4','#84CC16'];
-  if (S.charts.dn) S.charts.dn.destroy();
-  if (g('dnchart')) S.charts.dn = new Chart(g('dnchart').getContext('2d'),{type:'doughnut',data:{labels:ck,datasets:[{data:ck.map(k=>ec[k]),backgroundColor:clrs,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:6,font:{family:'Sarabun',size:10}}}}}});
-  if (S.charts.ln) S.charts.ln.destroy();
-  if (g('lnchart')) S.charts.ln = new Chart(g('lnchart').getContext('2d'),{type:'line',data:{labels:mn,datasets:[{label:'เงินสดสะสม',data:cumN,borderColor:'#6366F1',backgroundColor:'rgba(99,102,241,.08)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#6366F1'},{label:'รายรับสะสม',data:cumI,borderColor:'#10B981',fill:false,tension:.4,pointRadius:3,borderDash:[5,3]}]},options:chOpts});
-  const iu = {}; S.income.forEach(r => { const u = ubyid(r.unitId); const k = u?u.code:'อื่นๆ'; iu[k] = (iu[k]||0) + (r.amount||0); });
-  const mxU = Math.max(...Object.values(iu), 1);
-  if (g('cfunits')) g('cfunits').innerHTML = Object.entries(iu).map(([k,v])=>`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span style="font-weight:500">${k}</span><span style="color:var(--g);font-family:Inter,sans-serif">${F.thb(v)}</span></div><div style="height:5px;background:var(--bg);border-radius:3px;overflow:hidden"><div style="height:100%;width:${(v/mxU*100).toFixed(0)}%;background:var(--g);border-radius:3px;transition:width .6s"></div></div></div>`).join('') || '<div style="font-size:12px;color:var(--hi)">ไม่มีข้อมูล</div>';
-  const ti = S.income.reduce((s,r)=>s+r.amount,0), te = S.expenses.reduce((s,r)=>s+r.amount,0), pv = S.proj.value||14000000, pr = ti-te;
-  if (g('cfsum')) g('cfsum').innerHTML = `<div class="stat"><span class="stl">รายรับรวม</span><span class="stv" style="color:var(--g)">${F.thb(ti)}</span></div><div class="stat"><span class="stl">รายจ่ายรวม</span><span class="stv" style="color:var(--r)">${F.thb(te)}</span></div><div class="stat"><span class="stl">กำไร/ขาดทุน</span><span class="stv" style="color:${pr>=0?'var(--g)':'var(--r)'}">${F.thb(pr)}</span></div><div class="stat"><span class="stl">ROI</span><span class="stv">${F.pct(te>0?pr/te:0)}</span></div><div class="stat"><span class="stl">% รับเงิน</span><span class="stv">${F.pct(pv>0?ti/pv:0)}</span></div>`;
-  const inv = S.proj.investors||5, pf = Math.max(0,pr), pp = [.30,.25,.20,.15,.10,.10,.05,.05];
-  if (g('cfinv')) g('cfinv').innerHTML = [...Array(Math.min(inv,pp.length))].map((_,i)=>`<div class="stat"><span class="stl">ผู้ลงทุน ${i+1} (${(pp[i]*100).toFixed(0)}%)</span><span class="stv" style="color:var(--p);font-size:12px">${F.thb(pf*pp[i])}</span></div>`).join('');
-}
-
-// ══════════════════════════════════════════════════════════════════
-//  INCOME CRUD — แก้บัคข้อมูลเบิ้ล: ลบ if(S.demo)S.income.unshift ออก
-//  เพราะ dbW() จัดการ array ใน demo mode เองแล้ว
-//  ใน Firebase mode → listener trigger re-render อัตโนมัติ
-// ══════════════════════════════════════════════════════════════════
-async function addInc() {
-  const amt = parseFloat(gv('iamt')) || 0;
-  if (!amt) { toast('กรุณากรอกจำนวนเงิน', 'err'); return; }
-  const att = S.pfiles['i'] || null;
-  const id  = uid();
-  const data = {
-    date: gv('id8') || td(),
-    unitId: gv('iunit') || null,
-    type: gv('ityp'),
-    customer: gv('icust'),
-    amount: amt,
-    note: gv('inote'),
-    att,
-    createdAt: Date.now()
-  };
-  try {
-    await dbW('income', id, data);
-    // ✅ FIX: ไม่ต้อง unshift ซ้ำ — dbW handle demo, listener handle Firebase
-    if (S.demo) { rInc(); rKPI(); rDash(); }
-    clrIncForm();
-    toast('บันทึกรายรับสำเร็จ ✅', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด: ' + e.message, 'err'); }
-}
-
-function clrIncForm() {
-  ['id8','iamt','icust','inote'].forEach(id => sv(id,''));
-  sv('id8', td()); sv('iunit','');
-  clrFile('i');
-}
-
-function openMI(id) {
-  const r = S.income.find(x => x.id === id); if (!r) return;
-  S.eiid = id;
-  sv('mid8', r.date); sv('miunit', r.unitId||''); sv('mityp', r.type);
-  sv('miamt', r.amount); sv('micus', r.customer||''); sv('minote', r.note||'');
-  delete S.pfiles['mi']; clrFile('mi');
-  oMo('minc');
-}
-
-async function saveMI() {
-  const r = S.income.find(x => x.id === S.eiid); if (!r) return;
-  const att = 'mi' in S.pfiles ? S.pfiles['mi'] : (r.att || null);
-  const data = {
-    date: gv('mid8'),
-    unitId: gv('miunit') || null,
-    type: gv('mityp'),
-    amount: parseFloat(gv('miamt')) || 0,
-    customer: gv('micus'),
-    note: gv('minote'),
-    att,
-    createdAt: r.createdAt || Date.now()
-  };
-  try {
-    await dbW('income', S.eiid, data);
-    if (S.demo) { rInc(); rKPI(); rDash(); }
-    cMo('minc');
-    toast('แก้ไขรายรับสำเร็จ', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
-}
-
-async function delI(id) {
-  if (!confirm('ลบรายรับนี้?')) return;
-  try {
-    await dbD('income', id);
-    if (S.demo) { rInc(); rKPI(); rDash(); }
-    toast('ลบรายรับแล้ว', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
-}
-
-// ══════════════════════════════════════════════════════════════════
-//  EXPENSE CRUD — แก้บัคเดียวกัน
-// ══════════════════════════════════════════════════════════════════
-async function addExp() {
-  const item = gv('eitem').trim(), amt = parseFloat(gv('eamt')) || 0;
-  if (!item || !amt) { toast('กรุณากรอกรายการและจำนวนเงิน', 'err'); return; }
-  const att = S.pfiles['e'] || null;
-  const id  = uid();
-  const data = {
-    date: gv('ed8') || td(),
-    cat: gv('ecat'),
-    item,
-    vend: gv('evend'),
-    dnum: gv('ednum'),
-    amount: amt,
-    sts: gv('ests'),
-    note: gv('enote'),
-    att,
-    createdAt: Date.now()
-  };
-  try {
-    await dbW('expenses', id, data);
-    // ✅ FIX: ไม่ต้อง unshift ซ้ำ
-    if (S.demo) { rExp(); rKPI(); rDash(); }
-    clrExpForm();
-    toast('บันทึกรายจ่ายสำเร็จ ✅', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด: ' + e.message, 'err'); }
-}
-
-function clrExpForm() {
-  ['ed8','eitem','evend','ednum','eamt','enote'].forEach(id => sv(id,''));
-  sv('ed8', td());
-  clrFile('e');
-}
-
-function openME(id) {
-  const r = S.expenses.find(x => x.id === id); if (!r) return;
-  S.eeid = id;
-  sv('med8', r.date); sv('mecat', r.cat); sv('meitem', r.item);
-  sv('mevend', r.vend||''); sv('meamt', r.amount); sv('mests', r.sts||'ชำระแล้ว'); sv('menote', r.note||'');
-  delete S.pfiles['me']; clrFile('me');
-  oMo('mexp');
-}
-
-async function saveME() {
-  const r = S.expenses.find(x => x.id === S.eeid); if (!r) return;
-  const att = 'me' in S.pfiles ? S.pfiles['me'] : (r.att || null);
-  const data = {
-    date: gv('med8'),
-    cat: gv('mecat'),
-    item: gv('meitem'),
-    vend: gv('mevend'),
-    amount: parseFloat(gv('meamt')) || 0,
-    sts: gv('mests'),
-    note: gv('menote'),
-    att,
-    createdAt: r.createdAt || Date.now()
-  };
-  try {
-    await dbW('expenses', S.eeid, data);
-    if (S.demo) { rExp(); rKPI(); rDash(); }
-    cMo('mexp');
-    toast('แก้ไขรายจ่ายสำเร็จ', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
-}
-
-async function delE(id) {
-  if (!confirm('ลบรายจ่ายนี้?')) return;
-  try {
-    await dbD('expenses', id);
-    if (S.demo) { rExp(); rKPI(); rDash(); }
-    toast('ลบรายจ่ายแล้ว', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
-}
-
-// ── UNIT CRUD ────────────────────────────────────────────────────
-function openUM(id) {
-  S.euid = id;
-  if (id) {
-    const u = S.units.find(x => x.id === id); if (!u) return;
-    g('umttl').textContent = '✏️ แก้ไขบ้าน · ' + u.code;
-    sv('ufc',u.code); sv('uft',u.type); sv('ufa',u.area); sv('ufp',u.price); sv('ufs',u.status); sv('ufcu',u.customer||''); sv('ufno',u.note||'');
-  } else {
-    g('umttl').textContent = '🏠 เพิ่มบ้านใหม่';
-    ['ufc','uft','ufa','ufp','ufcu','ufno'].forEach(id => sv(id,'')); sv('ufs','พร้อมขาย');
+      <div class="inv-sum-box" style="background:${pb};border:1px solid ${pbd}">
+        <div class="ilbl">กำไรสุทธิปัจจุบัน</div>
+        <div style="font-size:22px;font-weight:700;color:${pc};font-family:Inter,sans-serif">${F.thb(profit)}</div>
+        <div class="ks" style="margin-top:6px">${profit>=0?'✅ มีกำไร':'⚠️ ยังขาดทุน'} · ROI ${roi}%</div>
+      </div>
+      <div class="inv-sum-box" style="background:var(--bg);border:1px solid var(--bd)">
+        <div class="ilbl">จำนวนผู้ลงทุน</div>
+        <div style="font-size:22px;font-weight:700;color:var(--tx);font-family:Inter,sans-serif">${S.investors.length} ราย</div>
+        <div class="ks" style="margin-top:6px">แบ่งกำไรตามสัดส่วนเงินลงทุน</div>
+      </div>`;
   }
+
+  // Cards
+  const ig=g('inv-grid');
+  if(ig){
+    if(!ivs.length){
+      ig.innerHTML=`<div class="empty" style="grid-column:1/-1;padding:40px 20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg><p>ยังไม่มีผู้ลงทุน — กด <strong>เพิ่มผู้ลงทุน</strong> เพื่อเริ่มต้น</p></div>`;
+    } else {
+      const maxA=Math.max(...ivs.map(iv=>iv.amount||0),1);
+      ig.innerHTML=ivs.map((iv,i)=>{
+        const invP=profit*iv.share;
+        const roi2=iv.amount>0?(invP/iv.amount)*100:0;
+        const pct=(iv.share*100).toFixed(2);
+        const pc2=invP>=0?'var(--g)':'var(--r)';
+        return`<div class="inv-card">
+          <div class="inv-rank">${i+1}</div>
+          <div class="inv-name">${iv.name||'ไม่ระบุชื่อ'}</div>
+          <div class="inv-sub">ลงทุน ${F.thb(iv.amount)}${iv.note?` · ${iv.note}`:''}</div>
+          <div class="inv-pct">${pct}%</div>
+          <div class="inv-profit" style="color:${pc2}">กำไร ${F.thb(invP)}</div>
+          <div class="inv-roi">ROI ${roi2.toFixed(2)}%</div>
+          <div class="inv-bar"><div class="inv-bar-fill" style="width:${Math.min(100,(iv.amount/maxA)*100).toFixed(0)}%"></div></div>
+          <div class="inv-acts">
+            <button class="btn bgh bsm" style="flex:1" onclick="openInvM('${iv.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>แก้ไข</button>
+            <button class="btn br2 bsm" onclick="delInv('${iv.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:12px;height:12px"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>ลบ</button>
+          </div>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // Table
+  const tb=g('inv-tb');
+  if(tb){
+    if(!ivs.length){
+      tb.innerHTML=`<tr><td colspan="8"><div class="empty" style="padding:20px"><p>ยังไม่มีผู้ลงทุน</p></div></td></tr>`;
+    } else {
+      const totalInvPv=ivs.reduce((s,iv)=>s+(iv.amount||0),0);
+      tb.innerHTML=ivs.map((iv,i)=>{
+        const invP=profit*iv.share;
+        const roi2=iv.amount>0?(invP/iv.amount)*100:0;
+        const pct=(iv.share*100).toFixed(2);
+        const pc2=invP>=0?'var(--g)':'var(--r)';
+        return`<tr>
+          <td style="font-weight:600;color:var(--mu)">${i+1}</td>
+          <td style="font-weight:700">${iv.name||'-'}</td>
+          <td style="font-size:12px;color:var(--mu)">${iv.note||'-'}</td>
+          <td style="text-align:right;font-family:Inter,sans-serif;font-weight:600">${F.thb(iv.amount)}</td>
+          <td style="text-align:right">
+            <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px">
+              <div style="width:55px;height:4px;background:var(--bd2);border-radius:2px;overflow:hidden"><div style="height:100%;width:${parseFloat(pct)}%;background:var(--p);border-radius:2px"></div></div>
+              <span style="font-family:Inter,sans-serif;font-weight:700;color:var(--p)">${pct}%</span>
+            </div>
+          </td>
+          <td style="text-align:right;font-weight:700;color:${pc2};font-family:Inter,sans-serif">${F.thb(invP)}</td>
+          <td style="text-align:right;font-family:Inter,sans-serif;color:${roi2>=0?'var(--g)':'var(--r)'}">${roi2.toFixed(2)}%</td>
+          <td><div class="tacts">
+            <button class="tb te" onclick="openInvM('${iv.id}')" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+            <button class="tb td2" onclick="delInv('${iv.id}')" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
+          </div></td>
+        </tr>`;
+      }).join('')+`<tr style="background:var(--bg)">
+        <td colspan="3" style="font-weight:700;font-size:12px;color:var(--mu)">รวมทั้งหมด</td>
+        <td style="text-align:right;font-weight:700;font-family:Inter,sans-serif">${F.thb(totalInvPv)}</td>
+        <td style="text-align:right;font-weight:700;font-family:Inter,sans-serif;color:var(--p)">100.00%</td>
+        <td style="text-align:right;font-weight:700;font-family:Inter,sans-serif;color:${profit>=0?'var(--g)':'var(--r)'}">${F.thb(profit)}</td>
+        <td colspan="2"></td>
+      </tr>`;
+    }
+  }
+}
+
+// ── RENDER CASHFLOW
+function rCF(){
+  const mn=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const iM=Array(12).fill(0),eM=Array(12).fill(0);
+  S.income.forEach(r=>{if(r.date)iM[new Date(r.date+'T00:00:00').getMonth()]+=(r.amount||0);});
+  S.expenses.forEach(r=>{if(r.date)eM[new Date(r.date+'T00:00:00').getMonth()]+=(r.amount||0);});
+  let cn=0,ci=0;const cumN=[],cumI=[];
+  for(let i=0;i<12;i++){ci+=iM[i];cn+=(iM[i]-eM[i]);cumI.push(ci);cumN.push(cn);}
+  const chOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,font:{family:'Sarabun',size:11}}}},scales:{y:{ticks:{callback:v=>F.thb(v),font:{family:'Sarabun',size:10}},grid:{color:'#F1F5F9'}},x:{ticks:{font:{family:'Sarabun',size:10}},grid:{display:false}}}};
+  // BUG FIX: destroy ก่อน re-create ทุกครั้ง
+  ['bar','dn','ln'].forEach(k=>{if(S.charts[k]){try{S.charts[k].destroy();}catch(_){}S.charts[k]=null;}});
+  if(g('barchart'))S.charts.bar=new Chart(g('barchart').getContext('2d'),{type:'bar',data:{labels:mn,datasets:[{label:'รายรับ',data:iM,backgroundColor:'rgba(16,185,129,.8)',borderRadius:5,borderSkipped:false},{label:'รายจ่าย',data:eM,backgroundColor:'rgba(239,68,68,.75)',borderRadius:5,borderSkipped:false}]},options:chOpts});
+  const ec={};S.expenses.forEach(r=>{ec[r.cat]=(ec[r.cat]||0)+(r.amount||0);});
+  const ck=Object.keys(ec),clrs=['#6366F1','#EF4444','#F59E0B','#10B981','#8B5CF6','#14B8A6','#F97316','#EC4899','#06B6D4','#84CC16'];
+  if(g('dnchart')&&ck.length)S.charts.dn=new Chart(g('dnchart').getContext('2d'),{type:'doughnut',data:{labels:ck,datasets:[{data:ck.map(k=>ec[k]),backgroundColor:clrs,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:6,font:{family:'Sarabun',size:10}}}}}});
+  if(g('lnchart'))S.charts.ln=new Chart(g('lnchart').getContext('2d'),{type:'line',data:{labels:mn,datasets:[{label:'เงินสดสะสม',data:cumN,borderColor:'#6366F1',backgroundColor:'rgba(99,102,241,.08)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#6366F1'},{label:'รายรับสะสม',data:cumI,borderColor:'#10B981',fill:false,tension:.4,pointRadius:3,borderDash:[5,3]}]},options:chOpts});
+  const iu={};S.income.forEach(r=>{const u=ubyid(r.unitId);const k=u?u.code:'อื่นๆ';iu[k]=(iu[k]||0)+(r.amount||0);});
+  const mxU=Math.max(...Object.values(iu),1);
+  if(g('cfunits'))g('cfunits').innerHTML=Object.entries(iu).map(([k,v])=>`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span style="font-weight:500">${k}</span><span style="color:var(--g);font-family:Inter,sans-serif">${F.thb(v)}</span></div><div style="height:5px;background:var(--bg);border-radius:3px;overflow:hidden"><div style="height:100%;width:${(v/mxU*100).toFixed(0)}%;background:var(--g);border-radius:3px;transition:width .6s"></div></div></div>`).join('')||'<div style="font-size:12px;color:var(--hi)">ไม่มีข้อมูล</div>';
+  const ti=S.income.reduce((s,r)=>s+r.amount,0),te=S.expenses.reduce((s,r)=>s+r.amount,0),pv=S.proj.value||14000000,pr=ti-te;
+  if(g('cfsum'))g('cfsum').innerHTML=`<div class="stat"><span class="stl">รายรับรวม</span><span class="stv" style="color:var(--g)">${F.thb(ti)}</span></div><div class="stat"><span class="stl">รายจ่ายรวม</span><span class="stv" style="color:var(--r)">${F.thb(te)}</span></div><div class="stat"><span class="stl">กำไร/ขาดทุน</span><span class="stv" style="color:${pr>=0?'var(--g)':'var(--r)'}">${F.thb(pr)}</span></div><div class="stat"><span class="stl">ROI</span><span class="stv">${F.pct(te>0?pr/te:0)}</span></div><div class="stat"><span class="stl">% รับเงิน</span><span class="stv">${F.pct(pv>0?ti/pv:0)}</span></div>`;
+  const ivs=calcInvShares();const pf=Math.max(0,pr);
+  if(g('cfinv')){
+    if(!ivs.length){g('cfinv').innerHTML=`<div style="font-size:12px;color:var(--hi);text-align:center;padding:12px">ยังไม่มีผู้ลงทุน<br><span onclick="goTab('investors')" style="color:var(--p);cursor:pointer">→ จัดการผู้ลงทุน</span></div>`;}
+    else{g('cfinv').innerHTML=ivs.map(iv=>`<div class="stat"><span class="stl">${iv.name} (${(iv.share*100).toFixed(1)}%)</span><span class="stv" style="color:var(--p);font-size:12px">${F.thb(pf*iv.share)}</span></div>`).join('');}
+  }
+}
+// ── INVESTOR CRUD
+function openInvM(id){
+  S.eiNvid=id;
+  if(id){
+    const iv=S.investors.find(x=>x.id===id);if(!iv)return;
+    g('invmttl').textContent='✏️ แก้ไขข้อมูลผู้ลงทุน';
+    sv('inv-fname',iv.name||'');sv('inv-famt',iv.amount||'');sv('inv-fnote',iv.note||'');
+  }else{
+    g('invmttl').textContent='👤 เพิ่มผู้ลงทุนใหม่';
+    sv('inv-fname','');sv('inv-famt','');sv('inv-fnote','');
+  }
+  if(g('inv-pct-preview'))g('inv-pct-preview').innerHTML='';
+  previewInvPct();oMo('minvestor');
+}
+function previewInvPct(){
+  const el=g('inv-pct-preview');if(!el)return;
+  const newAmt=parseFloat(gv('inv-famt'))||0;
+  if(!newAmt){el.innerHTML='';return;}
+  const existTotal=S.investors.filter(iv=>iv.id!==S.eiNvid).reduce((s,iv)=>s+(iv.amount||0),0);
+  const total=existTotal+newAmt;
+  const pct=(newAmt/total*100).toFixed(2);
+  el.innerHTML=`<div class="pct-hint pct-ok">💡 สัดส่วนที่จะได้รับ <strong>${pct}%</strong> จากเงินลงทุนรวม ${F.thb(total)}</div>`;
+}
+async function saveInv(){
+  const name=gv('inv-fname').trim(),amt=parseFloat(gv('inv-famt'))||0;
+  if(!name){toast('กรุณาระบุชื่อผู้ลงทุน','err');return;}
+  if(!amt||amt<=0){toast('กรุณาระบุจำนวนเงินลงทุน','err');return;}
+  const id=S.eiNvid||uid();
+  const data={name,amount:amt,note:gv('inv-fnote'),createdAt:Date.now()};
+  try{
+    await dbW('investors',id,data);
+    if(S.demo)rInvestors();
+    cMo('minvestor');S.eiNvid=null;
+    toast(S.eiNvid?'แก้ไขข้อมูลผู้ลงทุนสำเร็จ':'เพิ่มผู้ลงทุนสำเร็จ','ok');
+  }catch(e){toast('เกิดข้อผิดพลาด: '+e.message,'err');}
+}
+async function delInv(id){
+  const iv=S.investors.find(x=>x.id===id);if(!iv)return;
+  if(!confirm('ลบผู้ลงทุน "'+iv.name+'"?'))return;
+  try{await dbD('investors',id);if(S.demo)rInvestors();toast('ลบผู้ลงทุนแล้ว','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+
+// ── INCOME CRUD
+async function addInc(){
+  const amt=parseFloat(gv('iamt'))||0;if(!amt){toast('กรุณากรอกจำนวนเงิน','err');return;}
+  const att=S.pfiles['i']||null;const id=uid();
+  const data={date:gv('id8')||td(),unitId:gv('iunit')||null,type:gv('ityp'),customer:gv('icust'),amount:amt,note:gv('inote'),att,createdAt:Date.now()};
+  try{await dbW('income',id,data);if(S.demo){rInc();rKPI();rDash();rInvestors();}clrIncForm();toast('บันทึกรายรับสำเร็จ ✅','ok');}catch(e){toast('เกิดข้อผิดพลาด: '+e.message,'err');}
+}
+function clrIncForm(){['id8','iamt','icust','inote'].forEach(id=>sv(id,''));sv('id8',td());sv('iunit','');clrFile('i');}
+function openMI(id){
+  const r=S.income.find(x=>x.id===id);if(!r)return;S.eiid=id;
+  sv('mid8',r.date);sv('miunit',r.unitId||'');sv('mityp',r.type);sv('miamt',r.amount);sv('micus',r.customer||'');sv('minote',r.note||'');
+  delete S.pfiles['mi'];clrFile('mi');oMo('minc');
+}
+async function saveMI(){
+  const r=S.income.find(x=>x.id===S.eiid);if(!r)return;
+  const att='mi'in S.pfiles?S.pfiles['mi']:(r.att||null);
+  const data={date:gv('mid8'),unitId:gv('miunit')||null,type:gv('mityp'),amount:parseFloat(gv('miamt'))||0,customer:gv('micus'),note:gv('minote'),att,createdAt:r.createdAt||Date.now()};
+  try{await dbW('income',S.eiid,data);if(S.demo){rInc();rKPI();rDash();rInvestors();}cMo('minc');toast('แก้ไขรายรับสำเร็จ','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+async function delI(id){
+  if(!confirm('ลบรายรับนี้?'))return;
+  try{await dbD('income',id);if(S.demo){rInc();rKPI();rDash();rInvestors();}toast('ลบรายรับแล้ว','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+
+// ── EXPENSE CRUD
+async function addExp(){
+  const item=gv('eitem').trim(),amt=parseFloat(gv('eamt'))||0;
+  if(!item||!amt){toast('กรุณากรอกรายการและจำนวนเงิน','err');return;}
+  const att=S.pfiles['e']||null;const id=uid();
+  const data={date:gv('ed8')||td(),cat:gv('ecat'),item,vend:gv('evend'),dnum:gv('ednum'),amount:amt,sts:gv('ests'),note:gv('enote'),att,createdAt:Date.now()};
+  try{await dbW('expenses',id,data);if(S.demo){rExp();rKPI();rDash();rInvestors();}clrExpForm();toast('บันทึกรายจ่ายสำเร็จ ✅','ok');}catch(e){toast('เกิดข้อผิดพลาด: '+e.message,'err');}
+}
+function clrExpForm(){['ed8','eitem','evend','ednum','eamt','enote'].forEach(id=>sv(id,''));sv('ed8',td());clrFile('e');}
+function openME(id){
+  const r=S.expenses.find(x=>x.id===id);if(!r)return;S.eeid=id;
+  sv('med8',r.date);sv('mecat',r.cat);sv('meitem',r.item);sv('mevend',r.vend||'');sv('meamt',r.amount);sv('mests',r.sts||'ชำระแล้ว');sv('menote',r.note||'');
+  delete S.pfiles['me'];clrFile('me');oMo('mexp');
+}
+async function saveME(){
+  const r=S.expenses.find(x=>x.id===S.eeid);if(!r)return;
+  const att='me'in S.pfiles?S.pfiles['me']:(r.att||null);
+  const data={date:gv('med8'),cat:gv('mecat'),item:gv('meitem'),vend:gv('mevend'),amount:parseFloat(gv('meamt'))||0,sts:gv('mests'),note:gv('menote'),att,createdAt:r.createdAt||Date.now()};
+  try{await dbW('expenses',S.eeid,data);if(S.demo){rExp();rKPI();rDash();rInvestors();}cMo('mexp');toast('แก้ไขรายจ่ายสำเร็จ','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+async function delE(id){
+  if(!confirm('ลบรายจ่ายนี้?'))return;
+  try{await dbD('expenses',id);if(S.demo){rExp();rKPI();rDash();rInvestors();}toast('ลบรายจ่ายแล้ว','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+
+// ── UNIT CRUD
+function openUM(id){
+  S.euid=id;
+  if(id){const u=S.units.find(x=>x.id===id);if(!u)return;g('umttl').textContent='✏️ แก้ไขบ้าน · '+u.code;sv('ufc',u.code);sv('uft',u.type);sv('ufa',u.area);sv('ufp',u.price);sv('ufs',u.status);sv('ufcu',u.customer||'');sv('ufno',u.note||'');}
+  else{g('umttl').textContent='🏠 เพิ่มบ้านใหม่';['ufc','uft','ufa','ufp','ufcu','ufno'].forEach(id=>sv(id,''));sv('ufs','พร้อมขาย');}
   oMo('munit');
 }
-
-async function saveUnit() {
-  const code = gv('ufc').trim(), price = parseFloat(gv('ufp')) || 0;
-  if (!code || !price) { toast('กรุณากรอกรหัสแปลงและราคา', 'err'); return; }
-  const data = {code, type:gv('uft'), area:parseFloat(gv('ufa'))||0, price, status:gv('ufs'), customer:gv('ufcu'), note:gv('ufno')};
-  const id = S.euid || uid();
-  try {
-    await dbW('units', id, data);
-    if (S.demo) { rUnits(); rUSel(); rDash(); rKPI(); }
-    cMo('munit');
-    toast(S.euid ? 'แก้ไขบ้านสำเร็จ' : 'เพิ่มบ้านใหม่สำเร็จ', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
+async function saveUnit(){
+  const code=gv('ufc').trim(),price=parseFloat(gv('ufp'))||0;if(!code||!price){toast('กรุณากรอกรหัสแปลงและราคา','err');return;}
+  const data={code,type:gv('uft'),area:parseFloat(gv('ufa'))||0,price,status:gv('ufs'),customer:gv('ufcu'),note:gv('ufno')};
+  const id=S.euid||uid();
+  try{await dbW('units',id,data);if(S.demo){rUnits();rUSel();rDash();rKPI();}cMo('munit');toast(S.euid?'แก้ไขบ้านสำเร็จ':'เพิ่มบ้านใหม่สำเร็จ','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+async function delU(id){
+  const u=S.units.find(x=>x.id===id);if(!u)return;if(!confirm('ลบบ้าน '+u.code+'?'))return;
+  try{await dbD('units',id);if(S.demo){rUnits();rUSel();rDash();rKPI();}toast('ลบบ้านแล้ว','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
 }
 
-async function delU(id) {
-  const u = S.units.find(x => x.id === id); if (!u) return;
-  if (!confirm(`ลบบ้าน ${u.code}?`)) return;
-  try {
-    await dbD('units', id);
-    if (S.demo) { rUnits(); rUSel(); rDash(); rKPI(); }
-    toast('ลบบ้านแล้ว', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
+// ── PROJECT EDIT
+function openPE(){sv('pfn',S.proj.name||'');sv('pfv',S.proj.value||14000000);sv('pfs',S.proj.startDate||'');sv('pfe',S.proj.endDate||'');sv('pfm',S.proj.manager||'');oMo('mproj');}
+async function savePE(){
+  const data={name:gv('pfn'),value:parseFloat(gv('pfv'))||14000000,startDate:gv('pfs'),endDate:gv('pfe'),manager:gv('pfm')};
+  try{await dbP(data);if(S.demo){rProjInfo();rKPI();rDash();}cMo('mproj');toast('บันทึกข้อมูลโครงการแล้ว','ok');}catch(e){toast('เกิดข้อผิดพลาด','err');}
+}
+function onProjImg(inp){
+  const f=inp.files[0];if(!f)return;if(f.size>2*1024*1024){toast('รูปภาพใหญ่เกิน 2MB','err');return;}
+  const r=new FileReader();r.onload=async ev=>{const imgUrl=ev.target.result;S.proj.imgUrl=imgUrl;try{await dbP({imgUrl});}catch(_){}if(g('pimgw'))g('pimgw').innerHTML=`<img src="${imgUrl}" alt="p" style="width:100%;height:100%;object-fit:cover">`;toast('อัปโหลดรูปโครงการแล้ว','ok');};r.readAsDataURL(f);
+}
+function onProjDoc(inp){
+  const f=inp.files[0];if(!f)return;if(f.size>2*1024*1024){toast('ไฟล์ใหญ่เกิน 2MB','err');inp.value='';return;}
+  const r=new FileReader();r.onload=async ev=>{const doc={name:f.name,type:f.type,size:F.sz(f.size),data:ev.target.result};const docs=[...normDocs(S.proj.docs),doc];S.proj.docs=docs;try{await dbP({docs});}catch(_){}rPDocs();toast('แนบไฟล์ '+f.name+' แล้ว','ok');inp.value='';};r.readAsDataURL(f);
+}
+async function delPD(i){
+  if(!confirm('ลบเอกสารนี้?'))return;const docs=[...normDocs(S.proj.docs)];docs.splice(i,1);S.proj.docs=docs;try{await dbP({docs});}catch(_){}rPDocs();toast('ลบเอกสารแล้ว','ok');
 }
 
-// ── PROJECT EDIT ─────────────────────────────────────────────────
-function openPE() {
-  sv('pfn', S.proj.name||''); sv('pfv', S.proj.value||14000000);
-  sv('pfs', S.proj.startDate||''); sv('pfe', S.proj.endDate||'');
-  sv('pfm', S.proj.manager||''); sv('pfi', S.proj.investors||5);
-  oMo('mproj');
+// ── MAP
+function openMapMo(){sv('madr',S.proj.mapAddr||'');sv('mlat',S.proj.mapLat||'');sv('mlng',S.proj.mapLng||'');oMo('mmap');}
+async function saveMap(){
+  const addr=gv('madr').trim(),lat=gv('mlat').trim(),lng=gv('mlng').trim();
+  if(!addr&&!lat){toast('กรุณากรอกที่อยู่หรือพิกัด','err');return;}
+  const data={mapAddr:addr,mapLat:lat,mapLng:lng};S.proj={...S.proj,...data};
+  try{await dbP(data);}catch(_){}
+  if(g('mztxt'))g('mztxt').innerHTML=`<span style="font-weight:600;font-size:12px">${addr||lat+','+lng}</span><br><span style="font-size:10px;color:var(--p)">แตะเพื่อแก้ไข</span>`;
+  cMo('mmap');toast('ปักหมุดที่ตั้งแล้ว','ok');
 }
+function openGmap(){const lat=gv('mlat')||'14.0583',lng=gv('mlng')||'101.4142';window.open('https://www.google.com/maps?q='+lat+','+lng,'_blank');}
 
-async function savePE() {
-  const data = {
-    name: gv('pfn'), value: parseFloat(gv('pfv'))||14000000,
-    startDate: gv('pfs'), endDate: gv('pfe'),
-    manager: gv('pfm'), investors: parseInt(gv('pfi'))||5
-  };
-  try {
-    await dbP(data);
-    // demo: dbP อัปเดต S.proj แล้ว; Firebase: listener fire
-    if (S.demo) { rProjInfo(); rKPI(); rDash(); }
-    cMo('mproj');
-    toast('บันทึกข้อมูลโครงการแล้ว', 'ok');
-  } catch(e) { toast('เกิดข้อผิดพลาด', 'err'); }
-}
+// ── CLOCK
+function tick(){const now=new Date();const t=now.toLocaleTimeString('th-TH');const d=now.toLocaleDateString('th-TH',{weekday:'short',day:'numeric',month:'short'});const e=g('sbtime');if(e)e.textContent=d+' '+t;const e2=g('ttsub');if(e2)e2.textContent='Real-Time · '+t;}
 
-function onProjImg(inp) {
-  const f = inp.files[0]; if (!f) return;
-  if (f.size > 2*1024*1024) { toast('รูปภาพใหญ่เกิน 2MB', 'err'); return; }
-  const r = new FileReader();
-  r.onload = async ev => {
-    const imgUrl = ev.target.result;
-    S.proj.imgUrl = imgUrl; // optimistic local update
-    try { await dbP({imgUrl}); } catch(_) {}
-    if (g('pimgw')) g('pimgw').innerHTML = `<img src="${imgUrl}" alt="p" style="width:100%;height:100%;object-fit:cover">`;
-    toast('อัปโหลดรูปโครงการแล้ว', 'ok');
-  };
-  r.readAsDataURL(f);
-}
-
-function onProjDoc(inp) {
-  const f = inp.files[0]; if (!f) return;
-  if (f.size > 2*1024*1024) { toast('ไฟล์ใหญ่เกิน 2MB', 'err'); inp.value = ''; return; }
-  const r = new FileReader();
-  r.onload = async ev => {
-    const doc = {name:f.name, type:f.type, size:F.sz(f.size), data:ev.target.result};
-    const docs = [...normDocs(S.proj.docs), doc];
-    S.proj.docs = docs; // optimistic
-    try { await dbP({docs}); } catch(_) {}
-    rPDocs();
-    toast(`แนบไฟล์ ${f.name} แล้ว`, 'ok');
-    inp.value = '';
-  };
-  r.readAsDataURL(f);
-}
-
-async function delPD(i) {
-  if (!confirm('ลบเอกสารนี้?')) return;
-  const docs = [...normDocs(S.proj.docs)];
-  docs.splice(i, 1);
-  S.proj.docs = docs; // optimistic
-  try { await dbP({docs}); } catch(_) {}
-  rPDocs();
-  toast('ลบเอกสารแล้ว', 'ok');
-}
-
-// ── MAP ──────────────────────────────────────────────────────────
-function openMapMo() {
-  sv('madr', S.proj.mapAddr||''); sv('mlat', S.proj.mapLat||''); sv('mlng', S.proj.mapLng||'');
-  oMo('mmap');
-}
-
-async function saveMap() {
-  const addr = gv('madr').trim(), lat = gv('mlat').trim(), lng = gv('mlng').trim();
-  if (!addr && !lat) { toast('กรุณากรอกที่อยู่หรือพิกัด', 'err'); return; }
-  const data = {mapAddr:addr, mapLat:lat, mapLng:lng};
-  S.proj = {...S.proj, ...data}; // optimistic
-  try { await dbP(data); } catch(_) {}
-  if (g('mztxt')) g('mztxt').innerHTML = `<span style="font-weight:600;font-size:12px">${addr||lat+','+lng}</span><br><span style="font-size:10px;color:var(--p)">แตะเพื่อแก้ไข</span>`;
-  cMo('mmap');
-  toast('ปักหมุดที่ตั้งแล้ว', 'ok');
-}
-
-function openGmap() {
-  const lat = gv('mlat') || '14.0583', lng = gv('mlng') || '101.4142';
-  window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
-}
-
-// ── CLOCK ────────────────────────────────────────────────────────
-function tick() {
-  const now = new Date();
-  const t = now.toLocaleTimeString('th-TH');
-  const d = now.toLocaleDateString('th-TH',{weekday:'short',day:'numeric',month:'short'});
-  const e = g('sbtime'); if (e) e.textContent = d + ' ' + t;
-  const e2 = g('ttsub'); if (e2) e2.textContent = 'Real-Time · ' + t;
-}
-
-// ── INIT ─────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
-  sv('id8', td()); sv('ed8', td());
-  tick(); setInterval(tick, 1000);
-  initFB();
-});
+// ── INIT
+window.addEventListener('DOMContentLoaded',()=>{sv('id8',td());sv('ed8',td());tick();setInterval(tick,1000);initFB();});
 </script>
 </body>
 </html>
