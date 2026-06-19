@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -490,6 +491,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
 <script>
 // PropManager Pro v3 — Firebase Realtime DB + Investor Management
 // Bug fixes: ข้อมูลไม่เบิ้ล, chart destroy, demo sync, normDocs
+// + Anonymous Auth for secure GitHub Pages deployment
 
 const FB_CFG={apiKey:"AIzaSyAad7GNxjfz3nzPeFtBkhB16fO54QAKmOw",authDomain:"fab-checklist-workshop.firebaseapp.com",databaseURL:"https://fab-checklist-workshop-default-rtdb.firebaseio.com",projectId:"fab-checklist-workshop",storageBucket:"fab-checklist-workshop.firebasestorage.app",messagingSenderId:"80900940748",appId:"1:80900940748:web:0ab64b61d5bcc200fdf369"};
 const PID="PJ001";
@@ -550,9 +552,22 @@ function initFB(){
     const BASE=db.ref('propmanager/'+PID);
     PROJ_REF=BASE.child('proj');UNITS_REF=BASE.child('units');
     INC_REF=BASE.child('income');EXP_REF=BASE.child('expenses');INV_REF=BASE.child('investors');
-    g('ltxt').textContent='กำลังโหลดข้อมูล...';
+    g('ltxt').textContent='กำลังตรวจสอบสิทธิ์...';
     db.ref('.info/connected').on('value',snap=>{setFbSt(snap.val()?'ok':'err');g('sbsts').textContent=snap.val()?'Realtime DB':'ขาดการเชื่อมต่อ';});
-    startListeners();
+    // ใช้ Anonymous Authentication ก่อนเริ่มอ่าน/เขียนข้อมูล
+    // ต้องไปเปิดใช้งานที่ Firebase Console > Authentication > Sign-in method > Anonymous
+    firebase.auth().onAuthStateChanged(user=>{
+      if(user){
+        g('ltxt').textContent='กำลังโหลดข้อมูล...';
+        startListeners();
+      }
+    });
+    firebase.auth().signInAnonymously().catch(e=>{
+      console.error('Auth error',e);
+      let msg='Firebase Auth Error — ใช้ Demo Mode';
+      if(e&&e.code==='auth/operation-not-allowed')msg='ยังไม่เปิดใช้ Anonymous Sign-in ใน Firebase Console — ใช้ Demo Mode';
+      goDemo(msg);
+    });
   }catch(e){console.error(e);goDemo('Firebase Error — ใช้ Demo Mode');}
 }
 
