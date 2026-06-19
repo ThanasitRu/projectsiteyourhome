@@ -167,6 +167,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){aside{transform:translateX(-100%)}aside.open{transform:translateX(0)}.sbov.show{display:block}.main{margin-left:0}.ham{display:flex}.content{padding:14px}.kgrid{grid-template-columns:repeat(2,1fr)}.g2,.g3{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr 1fr}.mzone{width:100%}.dzone{min-width:100%}.inv-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.kgrid{grid-template-columns:1fr 1fr}.pgrid{grid-template-columns:1fr}.inv-grid{grid-template-columns:1fr}}
+#app-credit{text-align:center;padding:12px;background:#ffffff;border-top:1px solid #E2E8F0;color:#64748B;font-size:12px;margin-top:auto}
 </style>
 </head>
 <body>
@@ -378,6 +379,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   <div class="card"><div class="ct" style="margin-bottom:12px">ส่วนแบ่งกำไรผู้ลงทุน</div><div id="cfinv"></div></div>
 </div>
 </div>
+<footer id="app-credit">© 2026 PropManager Pro v3 Enterprise | Developed by <strong>ธนะสิทธิ์ รุจิระโชติวัฒน์</strong></footer>
 </div></div></div>
 <!-- MODALS -->
 <div class="mback" id="mproj">
@@ -488,7 +490,6 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
   </div>
 </div>
 <div class="twrap" id="twrap"></div>
-
 <script>
 // PropManager Pro v3 — Firebase Realtime DB + Investor Management
 // Bug fixes: ข้อมูลไม่เบิ้ล, chart destroy, demo sync, normDocs
@@ -974,8 +975,6 @@ function tick(){const now=new Date();const t=now.toLocaleTimeString('th-TH');con
 
 // ── INIT
 window.addEventListener('DOMContentLoaded',()=>{sv('id8',td());sv('ed8',td());tick();setInterval(tick,1000);initFB();});
-
-
 </script>
 </body>
 </html>
