@@ -188,7 +188,7 @@ hr{border:none;border-top:1px solid var(--bd);margin:14px 0}
     <div class="sbit" data-tab="income" onclick="goTab('income')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>รายรับ</div>
     <div class="sbit" data-tab="expense" onclick="goTab('expense')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>รายจ่าย</div>
     <div class="sbsl" style="margin-top:10px">โครงการ</div>
-    <div class="sbit" data-tab="units" onclick="goTab('units')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>บ้านแต่ละหลัง</div>
+    <div class="sbit" data-tab="units" onclick="goTab('units')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>บ้าน</div>
     <div class="sbit" data-tab="investors" onclick="goTab('investors')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>ผู้ลงทุน</div>
     <div class="sbit" data-tab="cashflow" onclick="goTab('cashflow')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>กระแสเงินสด</div>
   </nav>
@@ -536,7 +536,7 @@ function goTab(tab){
   document.querySelectorAll('.sbit').forEach(i=>i.classList.remove('active'));
   g('panel-'+tab).classList.add('active');
   const el=document.querySelector(`[data-tab="${tab}"]`);if(el)el.classList.add('active');
-  const tts={dashboard:'Dashboard — ภาพรวม',income:'รายรับ',expense:'รายจ่าย',units:'บ้านแต่ละหลัง',investors:'ผู้ลงทุน',cashflow:'กระแสเงินสด'};
+  const tts={dashboard:'Dashboard — ภาพรวม',income:'รายรับ',expense:'รายจ่าย',units:'บ้าน',investors:'ผู้ลงทุน',cashflow:'กระแสเงินสด'};
   g('ttpg').textContent=tts[tab]||tab;closeSB();
   if(tab==='dashboard')rDash();
   if(tab==='income'){rUSel();rInc();}
